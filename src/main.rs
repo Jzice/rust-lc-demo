@@ -1,7 +1,8 @@
 use dashmap::DashMap;
 use std::sync::{Arc, RwLock};
 
-mod skip_list;
+mod ds;
+mod alg; 
 
 fn main() {
     let my_map: Arc<RwLock<DashMap<String, i32>>> = Arc::new(RwLock::new(DashMap::new()));

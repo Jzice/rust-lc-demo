@@ -25,12 +25,6 @@ impl SkipNode {
     }
 }
 
-/// 跳表
-struct SkipList {
-    level: usize, // 跳表最高层级 
-    head: Link,   // 跳表头
-}
-
 // 生成随机level
 fn get_rand_level() -> usize {
     let mut level = 1;
@@ -40,6 +34,12 @@ fn get_rand_level() -> usize {
     }
 
     level
+}
+
+/// 跳表
+struct SkipList {
+    level: usize, // 跳表最高层级 
+    head: Link,   // 跳表头
 }
 
 impl SkipList {
@@ -59,7 +59,7 @@ impl SkipList {
         let mut cur_link = self.head.clone();
         // 从level开始, 往下遍历各层
         for l in (0..level).rev() {
-            // 从当前节点开始, 往后遍历当前层
+            // 从当前节点开始, 往后遍历
             while let Some(link_rc) = cur_link.clone() {
                 let mut node = link_rc.borrow_mut();
                 if node.val == val {
@@ -67,11 +67,10 @@ impl SkipList {
                 }
                 // next节点val < 新节点val
                 if let Some(next) = node.next[l].clone().filter(|n| n.borrow().val < val) {
-                    // 移动到下个节点
+                    // 往后移动当前指针
                     cur_link.replace(next);
                 } else {
                     // 否则, 可以插入了
-                    // 将new_node
                     new_node.borrow_mut().next[l] = node.next[l].take();
                     // 将当前节点当前层级下一个节点指针 -> new_node
                     node.next[l].replace(new_node.clone());
@@ -154,7 +153,6 @@ mod tests {
         assert!(!sl1.search(11));
         assert!(!sl1.remove(11));
     }
-
 }
 
 
