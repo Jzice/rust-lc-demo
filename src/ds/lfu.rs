@@ -16,9 +16,10 @@ struct LFUEntry {
     val: LFUVal,
 }
 
+/// LFU缓存
 struct LFUCache {
     n: usize,       // cache容量
-    time: usize,
+    time: usize,    // 更新时间
     cache_map: HashMap<LFUKey, LFUEntry>,  // 哈希表
     keys: BTreeSet<LFUEntry>, // 有序列表
 }

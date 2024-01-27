@@ -1,5 +1,5 @@
 // skip_list.rs
-//
+// 跳表
 
 use std::{rc::Rc, cell::RefCell};
 use rand::Rng;
@@ -16,7 +16,7 @@ struct SkipNode {
 }
 
 impl SkipNode {
-    /// 新建
+    /// 新建SkipNode
     pub fn new(val: i32, level: usize) -> Self {
         Self {
             val,
@@ -25,7 +25,7 @@ impl SkipNode {
     }
 }
 
-// 生成随机level
+/// 生成随机level
 fn get_rand_level() -> usize {
     let mut level = 1;
     let mut rng = rand::thread_rng();

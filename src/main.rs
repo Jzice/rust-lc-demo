@@ -3,6 +3,7 @@ use std::sync::{Arc, RwLock};
 
 mod ds;
 mod alg; 
+mod leetcode;
 
 fn main() {
     let my_map: Arc<RwLock<DashMap<String, i32>>> = Arc::new(RwLock::new(DashMap::new()));
