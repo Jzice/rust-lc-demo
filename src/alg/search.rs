@@ -2,11 +2,11 @@
 //
 
 
-type T = i32;
-
 /// # 二分查找
 /// ## 基本思想
-pub fn binary_search(nums: Vec<T>) -> Option<T> {
+pub fn binary_search<T>(nums: Vec<T>) -> Option<T>
+    where T: PartialOrd
+{
     todo!()
 }
 

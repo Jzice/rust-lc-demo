@@ -111,7 +111,7 @@ pub fn heap_sort<T>(nums: &mut Vec<T>)
         heapify(&mut nums[..], i);
     }
 
-    // 循环取出堆顶元素, 和尾部元素交换
+    // 依次取出堆顶元素, 和尾部元素交换
     for i in (0..nums.len()).rev() {
         nums.swap(0, i);
         heapify(&mut nums[..i], 0)

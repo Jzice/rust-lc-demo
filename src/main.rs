@@ -1,10 +1,6 @@
 use dashmap::DashMap;
 use std::sync::{Arc, RwLock};
 
-mod ds;
-mod alg; 
-mod leetcode;
-
 fn main() {
     let my_map: Arc<RwLock<DashMap<String, i32>>> = Arc::new(RwLock::new(DashMap::new()));
     my_map.write().unwrap().insert("a".to_string(), 1);
