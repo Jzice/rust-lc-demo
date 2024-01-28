@@ -1,5 +1,4 @@
-// skip_list.rs
-// 跳表
+//! # 跳表
 
 use std::{rc::Rc, cell::RefCell};
 use rand::Rng;
@@ -10,7 +9,7 @@ const P_FACTOR: f64 = 0.25;
 type Link = Option<Rc<RefCell<SkipNode>>>;
 
 /// 跳表节点
-struct SkipNode {
+pub struct SkipNode {
     val: i32,
     next: Vec<Link>,
 }
@@ -37,9 +36,11 @@ fn get_rand_level() -> usize {
 }
 
 /// 跳表
-struct SkipList {
-    level: usize, // 跳表最高层级 
-    head: Link,   // 跳表头
+pub struct SkipList {
+    /// 跳表最高层级 
+    level: usize, 
+    /// 跳表头
+    head: Link,   
 }
 
 impl SkipList {

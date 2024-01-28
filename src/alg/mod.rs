@@ -1,3 +1,4 @@
+//! # 算法库
 
-mod sort;       // 排序
-mod search;     // 查找
+pub mod sort;       
+pub mod search;     

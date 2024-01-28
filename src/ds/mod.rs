@@ -1,8 +1,7 @@
-/// ds/mod.rs
-/// 数据结构
+//! # 数据结构
 
-mod skip_list;
-mod trie_tree;
-mod union_find_set;
-mod lru;
-mod lfu;
+pub mod skip_list;          // 跳表
+pub mod trie_tree;          // 字典树
+pub mod union_find_set;     // 并查集
+pub mod lru;                // LRU缓存
+pub mod lfu;                // LFU缓存

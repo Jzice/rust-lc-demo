@@ -1,23 +1,18 @@
-/// alg/sort.rs
-/// 排序算法
-
-//
+//! 排序算法
+//!
 
 /// # 冒泡排序
 /// ## 基本思想
-/// 1. 遍历nums, 依次比较相邻的两个元素nums[i], nums[i+1],
-///    如果nums[i] > nums[i+1], 则交换两者位置, 
-/// 2. 遍历完成后最大的元素将位于数组尾部;
-/// 3. 逐步减少nums长度, 执行上述操作, 每次将剩余元素中的最大元素交换到后面,
+/// 1. 遍历nums[], 依次比较相邻的两个元素nums[i], nums[i+1],
+///    如果nums[i] > nums[i+1], 则交换两者位置;
+/// 2. 遍历1次后, nums[0..n]中的最大的元素将位于数组尾部;
+/// 3. 逐步减少遍历长度, 重复执行上述操作, 则每次将剩余数组中的最大元素交换到后面,
 ///    最终得到完整的有序数组;
 pub fn bubble_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
-    if nums.len() < 2 {
-        return;
-    }
-    for i in 0..nums.len()-1 {
-        for j in 0..nums.len()-1-i {
+    for i in 1..nums.len() {        // 外层控制遍历的次数
+        for j in 0..nums.len()-i {  // 内存控制每次遍历比较的次数
             if nums[j] > nums[j+1] {
                 nums.swap(j, j+1);
             }
@@ -28,52 +23,95 @@ pub fn bubble_sort<T>(nums: &mut Vec<T>)
 /// # 插入排序
 /// ## 基本思想
 /// 1. 将待排序数组分为前后两个部分: 
-///    - 前面已排序部分;
-///    - 后面未排序部分;
-/// 2. 每次选择后面未排序部分一个元素, 将其插入到前面已排序部分的正确位置
-///    插入中间位置时，要将后面有序元素依次往后移1位;
-/// 3. 当所有未排序部分都插入到前面部分后, 排序完成;
+///    - 前面: `已排序部分`;
+///    - 后面: `未排序部分`;
+/// 2. 开始`已排序部分`长度为1, `未排序部分`长度为`nums.len()-1`;
+/// 3. 将`未排序部分`的头元素**插入**到前面`已排序部分`的正确位置(按大小顺序).
+///    插入时，要将`已排序部分`插入点后面的元素依次往后移1位;
+/// 4. 重复步骤3, 当所有`未排序部分`都插入到`已排序部分`后, 排序完成;
 pub fn insert_sort<T>(nums: &mut Vec<T>)
-    where T: PartialOrd
+    where T: PartialOrd + Copy + Clone
 {
-    if nums.len() < 2 {
-        return;
-    }
-    for i in 0..nums.len() - 1 {
-        for j in i+1..nums.len() {
-            todo!()
+    for i in 1..nums.len() {
+        let mut j = i;
+        let n = nums[i];               // `未排序部分`头元素
+        while j > 0 && nums[j-1] > n { // 从后往前将`已排序部分`中大于未排序部分头元素的元素
+            nums[j] = nums[j-1];       // 后移动一位
+            j -= 1;
         }
+        nums[j] = n;                   // 将头元素插入到正确位置
     }
-    todo!()
 }
 
 /// # 选择排序
-/// ## 基本思路
-/// 1. 遍历一遍nums, 通过比较可以找到最小元素;
-/// 2. 因此, 每次遍历将nums中剩下的最小元素取出, 放到nums前面已排序的末尾, 
-///    则可依次将所有元素排序;
+/// ## 基本思想
+/// 1. 将待排序数组分为前后两个部分: 
+///    - 前面: `已排序部分`;
+///    - 后面: `未排序部分`;
+/// 2. 起始时, `已排序部分`长度为0, `未排序部分`长度为`nums.len()`;
+/// 3. 每次从后面`未排序部分`中**选择**最小的元素, 将其放到前面`已排序部分`的末尾.
+/// 4. 重复步骤3, 当所有`未排序部分`都选完, 则所有元素将按序加入到`已排序部分`, 排序完成;
 pub fn select_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
-    let l = nums.len();
-    for i in 0..l {                 // nums[i]表示已选择的第i小元素
-        for j in i+1..l {           // nums[j]表示nums[i..]后的元素
-            // 如果当前元素 比 之前已遍历的元素更小 
-            if nums[j] < nums[i] {
-                nums.swap(i, j);    // 将其交换到选定已排序好的
+    for i in 0..nums.len() {                 
+        let mut m = i;                  // 未排序部分最小元素初始下标
+        for j in i+1..nums.len() {      // 遍历未排序部分, 寻找最小元素下标
+            if nums[j] < nums[m] {      //
+                m = j;
             }
         }
+        nums.swap(i, m);                // 将最小元素和未排序部分最前面元素交换,
+                                        // 即紧接已排序部分之后
     }
 }
 
-
 /// # 归并排序
 /// ## 基本思想
-/// 1. 
+/// 1. 自底向上, 依次将两个已排序好的子数组合并为一个大的已排序数组 
 pub fn merge_sort<T>(nums: &mut Vec<T>) 
-    where T: PartialOrd
+    where T: PartialOrd + Copy + Clone
 {
-    todo!()
+    // 将数组左右两个有序的部分合并, 使整体有序
+    fn _merge<T>(nums: &mut Vec<T>, start: usize, mid: usize, end: usize)
+         where T: PartialOrd + Copy + Clone
+    {
+        let nums1 = nums[start..mid].iter().cloned().collect::<Vec<_>>();
+        let nums2 = nums[mid..end].iter().cloned().collect::<Vec<_>>();
+        let (mut l, mut r) = (0, 0);
+        while l < nums1.len() && r < nums2.len() {
+            if nums1[l] < nums2[r] {
+                nums[start+l+r] = nums1[l];
+                l += 1;
+            } else {
+                nums[start+l+r] = nums2[r];
+                r += 1;
+            }
+        }
+        while l < nums1.len() {
+            nums[start+l+r] = nums1[l];
+            l += 1;
+        }
+        while r < nums2.len() {
+            nums[start+l+r] = nums2[r];
+            r += 1;
+        }
+    }
+
+    // 递归归并排序
+    fn _merge_sort<T>(nums: &mut Vec<T>, start: usize, end: usize)
+         where T: PartialOrd + Copy + Clone
+    {
+        if start + 1 >= end {
+            return;
+        }
+        let m = (start + end ) / 2;
+        _merge_sort(nums, start, m);
+        _merge_sort(nums, m, end);
+        _merge(nums, start, m, end);
+    }
+
+    _merge_sort(nums, 0, nums.len())
 }
 
 /// # 希尔排序
@@ -87,6 +125,10 @@ pub fn shell_sort<T>(nums: &mut Vec<T>)
 
 /// # 堆排序
 /// ## 基本思想
+/// 1. 利用堆的特性对数组元素进行排序;
+/// 2. 先将数组建堆(大顶堆);
+/// 3. 然后依次取出堆顶元素(未排序部分的最大元素), 放置到数组末尾;
+/// 4. 继续调整堆, 重复3操作, 直到所有元素都取完, 最终完成排序;
 pub fn heap_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
@@ -194,6 +236,21 @@ mod tests {
     #[test]
     fn bubble_sort_test() {
         sort_fn_test(bubble_sort);
+    }
+
+    #[test]
+    fn insert_sort_test() {
+        sort_fn_test(insert_sort);
+    }
+
+    #[test]
+    fn select_sort_test() {
+        sort_fn_test(select_sort);
+    }
+
+    #[test]
+    fn merge_sort_test() {
+        sort_fn_test(merge_sort);
     }
 
     #[test]

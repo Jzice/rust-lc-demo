@@ -1,5 +1,4 @@
-// lru.rs
-//
+//! LRU缓存
 
 use std::collections::VecDeque;
 use std::collections::HashMap;
@@ -7,15 +6,20 @@ use std::collections::HashMap;
 type LRUKey = i32;
 type LRUVal = i32;
 
-/// Last Recent Used Cache
-struct LRUCache {
-    n: usize,                               // 缓存容量
-    cache_map: HashMap<LRUKey, LRUVal>,     // k-v 哈希表 
-    keys: VecDeque<LRUKey>,                 // 按key访问先后存储的双端队列
+/// LRU缓存(Last Recent Used Cache)
+pub struct LRUCache {
+    /// 缓存容量
+    n: usize,                               
+    /// k-v 哈希表 
+    cache_map: HashMap<LRUKey, LRUVal>,      
+    // 按访问先后存储的key双端队列
+    keys: VecDeque<LRUKey>,                 
 }
 
-/// LRUCache 操作
+/// LRUCache操作
 impl LRUCache {
+
+    /// 新建LRUCache
     pub fn new(n: usize) -> Self {
         LRUCache {
             n,

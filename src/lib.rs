@@ -1,4 +1,5 @@
+//! # Rust Demo Lib
 
-mod ds;
-mod alg; 
-mod leetcode;
+pub mod ds;
+pub mod alg; 
+pub mod leetcode;

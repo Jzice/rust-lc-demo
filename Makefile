@@ -1,16 +1,20 @@
 # Makefile
 
-PHONY = all
+PHONY := all
 
 all:
 	@echo "make all"
 
+PHONY += build
+build:
+	@cargo build
+
 PHONY += doc
 doc:
-	@cargo doc
+	@cargo doc --open
 
 PHONY += test
 test:
 	@cargo test
 
-.phony: $(PHONY)
+.PHONY: $(PHONY)

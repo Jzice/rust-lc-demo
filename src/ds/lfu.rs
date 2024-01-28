@@ -1,5 +1,4 @@
-// lfu.rs
-//
+//! # LFU缓存
 //
 
 use std::collections::HashMap;
@@ -8,23 +7,33 @@ use std::collections::BTreeSet;
 type LFUKey = i32;
 type LFUVal = i32;
 
+/// LFU条目
 #[derive(Clone, PartialEq, Eq, PartialOrd, Ord)]
-struct LFUEntry {
-    freq: usize,    // 访问计数
-    time: usize,    // 初始时间, 当freq相同时, 先生成的entry先被淘汰
+pub struct LFUEntry {
+    /// 访问计数
+    freq: usize,    
+    /// 初始时间, 当freq相同时, 先生成的entry先被淘汰
+    time: usize,    
+    /// 键
     key: LFUKey,
+    /// 值
     val: LFUVal,
 }
 
 /// LFU缓存
-struct LFUCache {
-    n: usize,       // cache容量
-    time: usize,    // 更新时间
-    cache_map: HashMap<LFUKey, LFUEntry>,  // 哈希表
-    keys: BTreeSet<LFUEntry>, // 有序列表
+pub struct LFUCache {
+    /// cache容量
+    n: usize,       
+    /// 更新时间
+    time: usize,    
+    // 哈希表
+    cache_map: HashMap<LFUKey, LFUEntry>,  
+    // 有序列表
+    keys: BTreeSet<LFUEntry>, 
 }
 
 impl LFUCache {
+    /// 新建容量大小为n的LFUCache
     pub fn new(n: usize) -> Self {
         LFUCache {
             n,

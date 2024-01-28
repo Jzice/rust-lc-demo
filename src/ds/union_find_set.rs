@@ -1,11 +1,12 @@
-// union_find_set.rs
-// 并查集
-//
+//! # 并查集
+//!
 
 /// 并查集
-struct UnionFindSet {
-    n: usize,           // 集合个数
-    pa: Vec<usize>,     // 集合数组
+pub struct UnionFindSet {
+    // 元素个数
+    n: usize,           
+    // 集合数组
+    pa: Vec<usize>,     
 }
 
 impl UnionFindSet {
@@ -18,11 +19,12 @@ impl UnionFindSet {
         }
     }
 
+    /// 并查集中不同集的个数
     pub fn size(&self) -> usize {
         self.n
     }
 
-    /// 查找元素
+    /// 查找元素在哪个集中
     pub fn find(&mut self, a: usize) -> usize {
         let mut a_ = a;
         while self.pa[a_] != a_ {
@@ -33,7 +35,7 @@ impl UnionFindSet {
         a_
     }
 
-    /// 合并两个元素到同一个集合中
+    /// 合并两个元素, 使之在同一个集合中
     pub fn union(&mut self, a: usize, b: usize) {
         let a_ = self.find(a); 
         let b_ = self.find(b);
@@ -47,7 +49,6 @@ impl UnionFindSet {
     pub fn is_connect(&mut self, a: usize, b: usize) -> bool {
         self.find(a) == self.find(b)
     }
-
 }
 
 #[cfg(test)]
