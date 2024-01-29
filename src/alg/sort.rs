@@ -26,32 +26,45 @@
 pub fn bubble_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
+    let mut sorted = true;          //
     for i in 1..nums.len() {        // 外层控制遍历的次数
+        sorted = true;
         for j in 0..nums.len()-i {  // 内存控制每次遍历比较的次数
             if nums[j] > nums[j+1] {
                 nums.swap(j, j+1);
+                sorted = false;
             }
+        }
+        if sorted {
+            break;
         }
     }
 }
 
-/// # 双向冒泡排序
+/// # 鸡尾酒排序
 /// ## 基本思想
 /// 1. 从左右两个方向同时执行冒泡; 
 /// 2. 遍历一次, 同时将最大最小值移动到数组两端;
-pub fn binary_bubble_sort<T>(nums: &mut Vec<T>)
+pub fn cocktail_shaker_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
     let L = nums.len();
     let mut i = 0;
+    let mut sorted = true;
     while i + 1 < L - i {
+        sorted = true;
         for k in i..(L-1-i) {
             if  nums[k] > nums[k+1] {
                 nums.swap(k, k+1);
+                sorted = false;
             }
             if  nums[L-1-k] < nums[L-1-k-1] {
                 nums.swap(L-1-k, L-1-k-1);
+                sorted = false;
             }
+        }
+        if sorted {
+            break;
         }
         i += 1;
     }
@@ -145,11 +158,30 @@ pub fn merge_sort<T>(nums: &mut Vec<T>)
 
 /// # 希尔排序
 /// ## 基本思想
-/// 1. 多路插入
+/// 1. 
 pub fn shell_sort<T>(nums: &mut Vec<T>)
-    where T: PartialOrd
+    where T: PartialOrd + Copy
 {
-    todo!()
+    // 带间隔的插入排序
+    fn _insert_sort_with_gap<T: PartialOrd + Copy>(nums: &mut Vec<T>, start: usize, gap: usize) {
+        for i in (start+gap..nums.len()).step_by(gap) {
+            let mut j = i;
+            let n = nums[i];               // `未排序部分`头元素
+            while j >= gap && nums[j-gap] > n { // 从后往前将`已排序部分`中大于未排序部分头元素的元素
+                nums[j] = nums[j-gap];       // 后移动gap位
+                j -= gap;
+            }
+            nums[j] = n;                   // 将头元素插入到正确位置
+        }
+    }
+
+    let mut gap = nums.len() / 2;
+    while gap > 0 {
+        for start in 0..gap {
+            _insert_sort_with_gap(nums, start, gap);
+        }
+        gap /= 2;
+    }
 }
 
 /// # 堆排序
@@ -200,7 +232,7 @@ pub fn quick_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
     // 将nums划分为前后两个部分, 使前一部分都小于后一部分, 返回划分点
-    fn partition<T: PartialOrd>(nums: &mut [T]) -> usize {
+    fn _partition<T: PartialOrd>(nums: &mut [T]) -> usize {
         let mut m = 0;              // 划分点
         let p = nums.len() - 1;     // 基准元素下标
         for i in 0..p {             // 依次遍历所有非基准元素
@@ -218,7 +250,7 @@ pub fn quick_sort<T>(nums: &mut Vec<T>)
         if nums.len() < 2 {
             return;
         }
-        let m = partition(nums);        // 将nums划分为前后两部分
+        let m = _partition(nums);        // 将nums划分为前后两部分
         _quick_sort(&mut nums[..m]);    // 
         _quick_sort(&mut nums[m+1..]);  //
     }
@@ -276,8 +308,8 @@ mod tests {
     }
 
     #[test]
-    fn binary_bubble_sort_test() {
-        sort_fn_test(binary_bubble_sort);
+    fn cocktail_shaker_sort_test() {
+        sort_fn_test(cocktail_shaker_sort);
     }
 
     #[test]
@@ -293,6 +325,11 @@ mod tests {
     #[test]
     fn merge_sort_test() {
         sort_fn_test(merge_sort);
+    }
+
+    #[test]
+    fn shell_sort_test() {
+        sort_fn_test(shell_sort);
     }
 
     #[test]
