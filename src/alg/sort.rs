@@ -144,9 +144,8 @@ pub fn merge_sort<T>(nums: &mut Vec<T>)
 }
 
 /// # 希尔排序
-///
 /// ## 基本思想
-/// 1. 
+/// 1. 多路插入
 pub fn shell_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
@@ -227,8 +226,11 @@ pub fn quick_sort<T>(nums: &mut Vec<T>)
     _quick_sort(&mut nums[..]);
 }
 
+
 #[cfg(test)]
 mod tests {
+    extern crate test;
+    use test::Bencher;
     use super::*;
 
     type SortFn = fn(&mut Vec<i32>);
@@ -261,6 +263,11 @@ mod tests {
         let mut nums1 = vec![2, 1];
         sort_fn(&mut nums1);
         assert_eq!(nums1, vec![1, 2]);
+    }
+
+    fn sort_fn_bench(sort_fn: SortFn) {
+        let mut nums1 = vec![10, 3, 26, 8, 7, 31];
+        sort_fn(&mut nums1);
     }
 
     #[test]
@@ -296,5 +303,32 @@ mod tests {
     #[test]
     fn quick_sort_test() {
         sort_fn_test(quick_sort);
+    }
+
+    #[bench]
+    fn bubble_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            for _ in 100..2000 {
+                sort_fn_bench(bubble_sort);
+            }
+        });
+    }
+
+    #[bench]
+    fn heap_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            for _ in 100..2000 {
+                sort_fn_bench(heap_sort);
+            }
+        });
+    }
+
+    #[bench]
+    fn quick_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            for _ in 100..2000 {
+                sort_fn_bench(quick_sort);
+            }
+        });
     }
 }

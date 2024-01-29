@@ -17,4 +17,8 @@ PHONY += test
 test:
 	@cargo test
 
+PHONY += bench
+bench:
+	@cargo bench 
+
 .PHONY: $(PHONY)
