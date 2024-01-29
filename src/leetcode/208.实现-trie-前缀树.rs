@@ -12,7 +12,7 @@
 * Total Accepted:    252.6K
 * Total Submissions: 351.1K
 * Testcase Example:  '["Trie","insert","search","search","startsWith","insert","search"]\n' +
- '[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]'
+* '[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]'
 *
 * Trie（发音类似 "try"）或者说 前缀树
 * 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。

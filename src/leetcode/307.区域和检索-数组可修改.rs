@@ -83,7 +83,7 @@ impl NumArray {
             lowbit_sums: vec![0; nums.len()], // lowbit_sums数组
         };
         for i in 0..nums.len() {
-            na.modify((i as i32), nums[i]);
+            na.modify(i as i32, nums[i]);
         }
 
         na

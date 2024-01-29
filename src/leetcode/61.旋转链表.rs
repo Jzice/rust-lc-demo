@@ -15,7 +15,7 @@
  *
  * 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
  *
- * 示例 1:
+ * ## 示例 1:
  *
  * 输入: 1->2->3->4->5->NULL, k = 2
  * 输出: 4->5->1->2->3->NULL
@@ -24,7 +24,7 @@
  * 向右旋转 2 步: 4->5->1->2->3->NULL
  *
  *
- * 示例 2:
+ * ## 示例 2:
  *
  * 输入: 0->1->2->NULL, k = 4
  * 输出: 2->0->1->NULL
@@ -79,7 +79,7 @@ impl Solution {
 
         // 获取第n个节点的可变引用
         fn get_list_n_node_mut_ref(head: &mut Option<Box<ListNode>>, n: i32) -> &mut Box<ListNode> {
-            let ptr = head.as_mut().unwrap();
+            let mut ptr = head.as_mut().unwrap();
             for _ in 0..n {
                 ptr = ptr.next.as_mut().unwrap();
             }

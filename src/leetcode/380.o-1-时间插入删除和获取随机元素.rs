@@ -12,7 +12,7 @@
  * Total Accepted:    107.5K
  * Total Submissions: 204.4K
  * Testcase Example:  '["RandomizedSet","insert","remove","insert","getRandom","remove","insert","getRandom"]\n' +
-  '[[],[1],[2],[2],[],[1],[2],[]]'
+ * '[[],[1],[2],[2],[],[1],[2],[]]'
  *
  * 实现RandomizedSet 类：
  * 
@@ -29,7 +29,7 @@
  * 
  * 
  * 
- * 示例：
+ * ## 示例：
  * 
  * 
  * 输入

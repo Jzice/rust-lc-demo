@@ -1,7 +1,7 @@
-/*
+/*!
  * @lc app=leetcode.cn id=137 lang=rust
  *
- * [137] 只出现一次的数字 II
+ * # [137] 只出现一次的数字 II
  *
  * https://leetcode.cn/problems/single-number-ii/description/
  *
@@ -19,14 +19,14 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
  *
  * 输入：nums = [2,2,3,2]
  * 输出：3
  *
  *
- * 示例 2：
+ * ## 示例 2：
  *
  *
  * 输入：nums = [0,1,0,1,0,1,99]
@@ -60,7 +60,7 @@ impl Solution {
             // 计算第i位的bit和
             if nums.iter().map(|&n| (n >> i) & 1_i32).sum::<i32>() % 3 != 0 {
                 // 如果第i位的bit和不为3的倍数, 则该位为1
-                res |= (1 << i);
+                res |= 1 << i;
             }
         }
 

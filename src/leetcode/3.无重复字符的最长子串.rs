@@ -1,7 +1,7 @@
-/*
+/*!
  * @lc app=leetcode.cn id=3 lang=rust
  *
- * [3] 无重复字符的最长子串
+ * # [3] 无重复字符的最长子串
  *
  * https://leetcode.cn/problems/longest-substring-without-repeating-characters/description/
  *
@@ -15,21 +15,21 @@
  *
  * 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
  *
- * 示例 1:
+ * ## 示例 1:
  *
  * 输入: "abcabcbb"
  * 输出: 3
  * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
  *
  *
- * 示例 2:
+ * ## 示例 2:
  *
  * 输入: "bbbbb"
  * 输出: 1
  * 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
  *
  *
- * 示例 3:
+ * ## 示例 3:
  *
  * 输入: "pwwkew"
  * 输出: 3
@@ -38,10 +38,12 @@
  *
  *
  */
-struct Solution;
+
+use super::*;
 
 // @lc code=start
 impl Solution {
+    /// # [3] 无重复字符的最长子串
     /// ## 解题思路
     /// - hashmap+滑动窗口
     /// 1. 设置 hashmap, 用于记录已经遍历的各个字符最后一次出现的下标;

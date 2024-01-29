@@ -61,11 +61,12 @@
  */
 
 use super::*;
+struct Solution;
 
 // @lc code=start
 impl Solution {
     /// # [167] 两数之和 II - 输入有序数组
-    pub fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
+    fn two_sum(numbers: Vec<i32>, target: i32) -> Vec<i32> {
         let (mut l, mut r) = (0, numbers.len() - 1);
         while l < r {
             if numbers[l] + numbers[r] == target {

@@ -1,17 +1,17 @@
-/*
+/*!
  * @lc app=leetcode.cn id=301 lang=rust
  *
- * [301] 删除无效的括号
+ * # [301] 删除无效的括号
  *
  * https://leetcode.cn/problems/remove-invalid-parentheses/description/
  *
- * algorithms
- * Hard (55.14%)
- * Likes:    796
- * Dislikes: 0
- * Total Accepted:    87.2K
- * Total Submissions: 158.2K
- * Testcase Example:  '"()())()"'
+ * ## algorithms
+ * - Hard (55.14%)
+ * - Likes:    796
+ * - Dislikes: 0
+ * - Total Accepted:    87.2K
+ * - Total Submissions: 158.2K
+ * - Testcase Example:  '"()())()"'
  *
  * 给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
  *
@@ -19,21 +19,21 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
  *
  * 输入：s = "()())()"
  * 输出：["(())()","()()()"]
  *
  *
- * 示例 2：
+ * ## 示例 2：
  *
  *
  * 输入：s = "(a)())()"
  * 输出：["(a())()","(a)()()"]
  *
  *
- * 示例 3：
+ * ## 示例 3：
  *
  *
  * 输入：s = ")("
@@ -120,15 +120,16 @@ struct Solution;
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::collections::HashSet;
     #[test]
     fn test() {
         assert_eq!(
-            Solution::remove_invalid_parentheses("()())()".into()),
-            vec!["()()()".to_string(), "(())()".to_string()]
+            Solution::remove_invalid_parentheses("()())()".into()).into_iter().collect::<HashSet<_>>(),  
+            HashSet::from(["(())()".to_string(), "()()()".to_string()])
         );
         assert_eq!(
-            Solution::remove_invalid_parentheses("(a)())()".into()),
-            vec!["(a)()()".to_string(), "(a())()".to_string()]
+            Solution::remove_invalid_parentheses("(a)())()".into()).into_iter().collect::<HashSet<_>>(),
+            HashSet::from(["(a())()".to_string(),"(a)()()".to_string()])
         );
         assert_eq!(
             Solution::remove_invalid_parentheses(")(".into()),

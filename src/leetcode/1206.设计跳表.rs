@@ -12,7 +12,7 @@
 * Total Accepted:    28.5K
 * Total Submissions: 41.5K
 * Testcase Example:  '["Skiplist","add","add","add","search","add","search","erase","erase","search"]\n' +
- '[[],[1],[2],[3],[0],[4],[1],[0],[1],[1]]'
+* '[[],[1],[2],[3],[0],[4],[1],[0],[1],[1]]'
 *
 * 不使用任何库函数，设计一个 跳表 。
 *
@@ -42,7 +42,7 @@
 *
 *
 *
-* 示例 1:
+* ## 示例 1:
 *
 *
 * 输入

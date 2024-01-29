@@ -1,7 +1,7 @@
-/*
+/*!
  * @lc app=leetcode.cn id=4 lang=rust
  *
- * [4] 寻找两个正序数组的中位数
+ * # [4] 寻找两个正序数组的中位数
  *
  * https://leetcode.cn/problems/median-of-two-sorted-arrays/description/
  *
@@ -19,7 +19,7 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
  *
  * 输入：nums1 = [1,3], nums2 = [2]
@@ -27,7 +27,7 @@
  * 解释：合并数组 = [1,2,3] ，中位数 2
  *
  *
- * 示例 2：
+ * ## 示例 2：
  *
  *
  * 输入：nums1 = [1,2], nums2 = [3,4]
@@ -35,21 +35,21 @@
  * 解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
  *
  *
- * 示例 3：
+ * ## 示例 3：
  *
  *
  * 输入：nums1 = [0,0], nums2 = [0,0]
  * 输出：0.00000
  *
  *
- * 示例 4：
+ * ## 示例 4：
  *
  *
  * 输入：nums1 = [], nums2 = [1]
  * 输出：1.00000
  *
  *
- * 示例 5：
+ * ## 示例 5：
  *
  *
  * 输入：nums1 = [2], nums2 = []
@@ -75,6 +75,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # [4] 寻找两个正序数组的中位数
     /// ## 解题思路
     /// - 二分查找法
     /// 1. 对于nums1, nums2, 排序后的中位数按合并后数组(设为nums)总长度(l1+l2)可以分为两种：
@@ -124,7 +125,10 @@ impl Solution {
             let i = (l + r) / 2;
             let j = (l1 + l2 + 1) / 2 - i;
 
-            let num1_i_1 = *nums1.get(i - 1).unwrap_or(&i32::MIN);
+            let mut num1_i_1 = i32::MIN;
+            if i > 0 {
+                num1_i_1 = *nums1.get(i - 1).unwrap_or(&i32::MIN);
+            }
             let num2_j = *nums2.get(j).unwrap_or(&i32::MAX);
             if num1_i_1 <= num2_j {
                 l = i + 1;
@@ -138,8 +142,14 @@ impl Solution {
         let i = (l + r) / 2;
         let j = (l1 + l2 + 1) / 2 - i;
 
-        let num1_i_1 = *nums1.get(i - 1).unwrap_or(&i32::MIN);
-        let num2_j_1 = *nums2.get(j - 1).unwrap_or(&i32::MIN);
+        let mut num1_i_1 = i32::MIN;
+        let mut num2_j_1 = i32::MIN;
+        if i > 0 {
+            num1_i_1 = *nums1.get(i - 1).unwrap_or(&i32::MIN);
+        }
+        if j > 0 {
+            num2_j_1 = *nums2.get(j - 1).unwrap_or(&i32::MIN);
+        }
         let num1_i = *nums1.get(i).unwrap_or(&i32::MAX);
         let num2_j = *nums2.get(j).unwrap_or(&i32::MAX);
 

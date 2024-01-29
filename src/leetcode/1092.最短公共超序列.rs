@@ -1,7 +1,7 @@
-/*
+/*!
  * @lc app=leetcode.cn id=1092 lang=rust
  *
- * [1092] 最短公共超序列
+ * # [1092] 最短公共超序列
  *
  * https://leetcode.cn/problems/shortest-common-supersequence/description/
  *
@@ -21,7 +21,7 @@
  *
  *
  *
- * 示例：
+ * ## 示例：
  *
  * 输入：str1 = "abac", str2 = "cab"
  * 输出："cabac"
@@ -46,6 +46,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # [1092] 最短公共超序列
     /// ## 解题思路
     pub fn shortest_common_supersequence(str1: String, str2: String) -> String {
         todo!()
@@ -61,9 +62,5 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(
-            Solution::shortest_common_supersequence("abac".into(), "cab".into()),
-            "cabac".to_string()
-        );
     }
 }

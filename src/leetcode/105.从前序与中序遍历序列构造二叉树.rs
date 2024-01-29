@@ -18,7 +18,7 @@
  *
  *
  *
- * 示例 1:
+ * ## 示例 1:
  *
  *
  * 输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
@@ -72,6 +72,7 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    /// # [105] 从前序与中序遍历序列构造二叉树
     /// ## 解题思路
     /// - 递归
     pub fn build_tree(preorder: Vec<i32>, inorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {

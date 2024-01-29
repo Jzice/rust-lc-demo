@@ -18,14 +18,14 @@
  *
  *
  *
- * 示例 1:
+ * ## 示例 1:
  *
  *
  * 输入：inorder = [9,3,15,20,7], postorder = [9,15,7,20,3]
  * 输出：[3,9,20,null,null,15,7]
  *
  *
- * 示例 2:
+ * ## 示例 2:
  *
  *
  * 输入：inorder = [-1], postorder = [-1]
@@ -49,6 +49,7 @@
  */
 
 use super::*;
+struct Solution;
 
 // @lc code=start
 // Definition for a binary tree node.
@@ -72,10 +73,11 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    /// # [106] 从中序与后序遍历序列构造二叉树
     /// ## 解题思路
     /// - 递归
-    pub fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        fn build_tree(inorder: &[i32], postorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+    fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+        fn _build(inorder: &[i32], postorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
             inorder
                 .iter()
                 .enumerate()
@@ -83,8 +85,8 @@ impl Solution {
                 .map(|(i, v)| {
                     Rc::new(RefCell::new(TreeNode {
                         val: *v,
-                        left: build_tree(&inorder[..i], &postorder[..i]),
-                        right: build_tree(
+                        left: _build(&inorder[..i], &postorder[..i]),
+                        right: _build(
                             &inorder[(i + 1)..],
                             &postorder[i..(postorder.len() - 1)],
                         ),
@@ -92,7 +94,7 @@ impl Solution {
                 })
         }
 
-        build_tree(&inorder, &postorder)
+        _build(&inorder, &postorder)
     }
 }
 // @lc code=end
