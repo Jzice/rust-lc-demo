@@ -35,6 +35,28 @@ pub fn bubble_sort<T>(nums: &mut Vec<T>)
     }
 }
 
+/// # 双向冒泡排序
+/// ## 基本思想
+/// 1. 从左右两个方向同时执行冒泡; 
+/// 2. 遍历一次, 同时将最大最小值移动到数组两端;
+pub fn binary_bubble_sort<T>(nums: &mut Vec<T>)
+    where T: PartialOrd
+{
+    let L = nums.len();
+    let mut i = 0;
+    while i + 1 < L - i {
+        for k in i..(L-1-i) {
+            if  nums[k] > nums[k+1] {
+                nums.swap(k, k+1);
+            }
+            if  nums[L-1-k] < nums[L-1-k-1] {
+                nums.swap(L-1-k, L-1-k-1);
+            }
+        }
+        i += 1;
+    }
+}
+
 /// # 插入排序
 /// ## 基本思想
 /// 1. 将待排序数组分为前后两个部分: 
@@ -95,7 +117,7 @@ pub fn merge_sort<T>(nums: &mut Vec<T>)
         let nums2 = nums[mid..end].iter().cloned().collect::<Vec<_>>();
         let (mut l, mut r) = (0, 0);
         while l < nums1.len() || r < nums2.len() {
-            if r == nums2.len() || nums1[l] < nums2[r] {
+            if r == nums2.len() || (l < nums1.len() && nums1[l] < nums2[r]) {
                 nums[start+l+r] = nums1[l];
                 l += 1;
             } else {
@@ -132,59 +154,49 @@ pub fn shell_sort<T>(nums: &mut Vec<T>)
 }
 
 /// # 堆排序
-///
 /// ## 基本思想
 /// 1. 利用堆的特性对数组元素进行排序;
 /// 2. 先将数组建堆(大顶堆);
 /// 3. 然后依次取出堆顶元素(未排序部分的最大元素), 放置到数组末尾;
 /// 4. 继续调整堆, 重复3操作, 直到所有元素都取完, 最终完成排序;
-///
-/// ## 复杂度
-/// * 时间复杂度: 
-///     - 平均: O(n * log(n))
-///     - 最佳:
-///     - 最差: 
-/// * 空间复杂度: O(n)
 pub fn heap_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
-    // 以nums[top]为顶调整为堆
-    fn heapify<T: PartialOrd>(nums: &mut [T], top: usize) {
+    // 堆化, 将nums[top..]调整为堆(大顶堆)
+    fn _heapify<T: PartialOrd>(nums: &mut [T], top: usize) {
         let mut m = top;
-        let (l, r) = (2 * top, 2 * top + 1);
-        if l < nums.len() && nums[l] >= nums[m] {
+        let (l, r) = ((2 * top + 1), (2 * top + 2));
+        if l < nums.len() && nums[l] > nums[m] {
             m = l;
         }
-        if r < nums.len() && nums[r] >= nums[m] {
+        if r < nums.len() && nums[r] > nums[m] {
             m = r;
         }
         if m != top {
             nums.swap(m, top);
-            heapify(nums, m);
+            _heapify(nums, m);
         }
     }
 
     // 从最后一个非叶子节点开始, 往上依次调整所有以该节点为根的子树，使之成为大顶堆
     for i in (0..nums.len()/2).rev() {
-        heapify(&mut nums[..], i);
+        _heapify(&mut nums[..], i);
     }
 
     // 依次取出堆顶元素, 和尾部元素交换
     for i in (0..nums.len()).rev() {
         nums.swap(0, i);
-        heapify(&mut nums[..i], 0)
+        _heapify(&mut nums[..i], 0)
     }
 }
 
 /// # 快速排序
-///
 /// ## 基本思想
 /// 1. 在待排序数组中选定一个基准元素pivot；
 /// 2. 以基准元素为标准, 将待排序数组划分为前后两个部分,
 ///    使前一部分的任意元素都< 基准元素,
 ///    而后一部分的任意元素都> 基准元素;
 /// 3. 分别对两个部分重复上述操作, 直到数组长度<2;
-///
 pub fn quick_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
@@ -254,6 +266,11 @@ mod tests {
     #[test]
     fn bubble_sort_test() {
         sort_fn_test(bubble_sort);
+    }
+
+    #[test]
+    fn binary_bubble_sort_test() {
+        sort_fn_test(binary_bubble_sort);
     }
 
     #[test]
