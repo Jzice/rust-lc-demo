@@ -1,17 +1,17 @@
 /*!
+ * # [1008.前序遍历构造二叉搜索树](https://leetcode.cn/problems/construct-binary-search-tree-from-preorder-traversal/description/)
+ *
  * @lc app=leetcode.cn id=1008 lang=rust
  *
- * # [1008] 前序遍历构造二叉搜索树
+ * ## 难度
+ * - Medium (72.08%)
+ * - Likes:    248
+ * - Dislikes: 0
+ * - Total Accepted:    28.4K
+ * - Total Submissions: 39.4K
+ * - Testcase Example:  '[8,5,1,7,10,12]'
  *
- * https://leetcode.cn/problems/construct-binary-search-tree-from-preorder-traversal/description/
- *
- * algorithms
- * Medium (72.08%)
- * Likes:    248
- * Dislikes: 0
- * Total Accepted:    28.4K
- * Total Submissions: 39.4K
- * Testcase Example:  '[8,5,1,7,10,12]'
+ * ## 问题描述
  *
  * 给定一个整数数组，它表示BST(即 二叉搜索树 )的 先序遍历 ，构造树并返回其根。
  *
@@ -24,33 +24,22 @@
  *
  *
  *
- * 示例 1：
- *
- *
- *
+ * ## 示例 1：
  *
  * 输入：preorder = [8,5,1,7,10,12]
  * 输出：[8,5,10,1,7,null,12]
  *
  *
- * 示例 2:
- *
+ * ## 示例 2:
  *
  * 输入: preorder = [1,3]
  * 输出: [1,null,3]
  *
+ * ## 提示：
  *
- *
- *
- * 提示：
- *
- *
- * 1 <= preorder.length <= 100
- * 1 <= preorder[i] <= 10^8
- * preorder 中的值 互不相同
- *
- *
- *
+ *   - 1 <= preorder.length <= 100
+ *   - 1 <= preorder[i] <= 10^8
+ *   - preorder 中的值 互不相同
  *
  */
 
@@ -78,6 +67,7 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    /// # 前序遍历构造二叉搜索树
     /// ## 解题思路
     /// - 递归
     /// 1. 前序遍历又叫先根遍历, 其顺序为: 根节点->左子树->右子树;

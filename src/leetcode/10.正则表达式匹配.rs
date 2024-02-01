@@ -1,20 +1,19 @@
 /*!
+ * # [10.正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching/description/)
+ *
  * @lc app=leetcode.cn id=10 lang=rust
  *
- * # [10] 正则表达式匹配
+ * ## 难度
+ * - Hard (30.45%)
+ * - Likes:    1700
+ * - Dislikes: 0
+ * - Total Accepted:    128.5K
+ * - Total Submissions: 421.8K
+ * - Testcase Example:  '"aa"\n"a"'
  *
- * https://leetcode.cn/problems/regular-expression-matching/description/
- *
- * algorithms
- * Hard (30.45%)
- * Likes:    1700
- * Dislikes: 0
- * Total Accepted:    128.5K
- * Total Submissions: 421.8K
- * Testcase Example:  '"aa"\n"a"'
+ * ## 问题描述
  *
  * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
- *
  *
  * '.' 匹配任意单个字符
  * '*' 匹配零个或多个前面的那一个元素
@@ -25,64 +24,54 @@
  *
  * ## 示例 1：
  *
- *
- * 输入：s = "aa" p = "a"
- * 输出：false
- * 解释："a" 无法匹配 "aa" 整个字符串。
- *
+ * - 输入：s = "aa" p = "a"
+ * - 输出：false
+ * - 解释："a" 无法匹配 "aa" 整个字符串。
  *
  * ## 示例 2:
  *
- *
- * 输入：s = "aa" p = "a*"
- * 输出：true
- * 解释：因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a' 重复了一次。
+ * - 输入：s = "aa" p = "a*"
+ * - 输出：true
+ * - 解释：因为 '*' 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 'a'。因此，字符串 "aa" 可被视为 'a' 重复了一次。
  *
  *
  * ## 示例 3：
  *
- *
- * 输入：s = "ab" p = ".*"
- * 输出：true
- * 解释：".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
+ * - 输入：s = "ab" p = ".*"
+ * - 输出：true
+ * - 解释：".*" 表示可匹配零个或多个（'*'）任意字符（'.'）。
  *
  *
  * ## 示例 4：
- *
- *
- * 输入：s = "aab" p = "c*a*b"
- * 输出：true
- * 解释：因为 '*' 表示零个或多个，这里 'c' 为 0 个, 'a' 被重复一次。因此可以匹配字符串 "aab"。
+ * - 输入：s = "aab" p = "c*a*b"
+ * - 输出：true
+ * - 解释：因为 '*' 表示零个或多个，这里 'c' 为 0 个, 'a' 被重复一次。因此可以匹配字符串 "aab"。
  *
  *
  * ## 示例 5：
  *
+ * - 输入：s = "mississippi" p = "mis*is*p*."
+ * - 输出：false
  *
- * 输入：s = "mississippi" p = "mis*is*p*."
- * 输出：false
+ * ## 提示：
  *
- *
- *
- * 提示：
- *
- *
- * 0
- * 0
- * s 可能为空，且只包含从 a-z 的小写字母。
- * p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
- * 保证每次出现字符 * 时，前面都匹配到有效的字符
+ * - s 可能为空，且只包含从 a-z 的小写字母。
+ * - p 可能为空，且只包含从 a-z 的小写字母，以及字符 . 和 *。
+ * - 保证每次出现字符 * 时，前面都匹配到有效的字符
  *
  *
  */
 
+use super::*;
+
 // @lc code=start
 impl Solution {
+    /// # 正则表达式匹配
     /// ## 解题思路
-    /// - 两种方法:
     /// 1. 递归
     /// 2. 动态规划
     pub fn is_match(s: String, p: String) -> bool {
-        /// - 递归
+        /// ## 递归
         /// 1. 模式字符串p中包含以下三种类型的字符: 普通字符，'.', '*';
         /// 2. 对于p,总共可分为以下几种形式:
         ///     a. p为空, 则取决于s是否也为空;
@@ -108,7 +97,7 @@ impl Solution {
             }
         }
 
-        /// - 动态规划
+        /// 动态规划
         /// 1. 令 dp[i][j]: s[..i] 和 p[..j]是否匹配;
         /// 2. 目标: dp[s.len()][p.len()]
         /// 3. 递推关系:
@@ -155,7 +144,6 @@ impl Solution {
 
 // @lc code=end
 //
-struct Solution;
 
 #[cfg(test)]
 pub mod tests {

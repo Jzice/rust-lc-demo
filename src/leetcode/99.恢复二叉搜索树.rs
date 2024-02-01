@@ -1,17 +1,18 @@
 /*!
+ * # [99.恢复二叉搜索树](https://leetcode.cn/problems/recover-binary-search-tree/description/)
+ *
  * @lc app=leetcode.cn id=99 lang=rust
  *
- * # [99] 恢复二叉搜索树
+ * ## 难度
  *
- * https://leetcode.cn/problems/recover-binary-search-tree/description/
+ * - Medium (60.26%)
+ * - Likes:    872
+ * - Dislikes: 0
+ * - Total Accepted:    138.9K
+ * - Total Submissions: 230.4K
+ * - Testcase Example:  '[1,3,null,null,2]'
  *
- * algorithms
- * Medium (60.26%)
- * Likes:    872
- * Dislikes: 0
- * Total Accepted:    138.9K
- * Total Submissions: 230.4K
- * Testcase Example:  '[1,3,null,null,2]'
+ * ## 问题描述
  *
  * 给你二叉搜索树的根节点 root ，该树中的 恰好 两个节点的值被错误地交换。请在不改变其结构的情况下，恢复这棵树 。
  *
@@ -19,28 +20,22 @@
  *
  * ## 示例 1：
  *
- *
- * 输入：root = [1,3,null,null,2]
- * 输出：[3,1,null,null,2]
- * 解释：3 不能是 1 的左孩子，因为 3 > 1 。交换 1 和 3 使二叉搜索树有效。
+ * - 输入：root = [1,3,null,null,2]
+ * - 输出：[3,1,null,null,2]
+ * - 解释：3 不能是 1 的左孩子，因为 3 > 1 。交换 1 和 3 使二叉搜索树有效。
  *
  *
  * ## 示例 2：
  *
- *
- * 输入：root = [3,1,4,null,null,2]
- * 输出：[2,1,4,null,null,3]
- * 解释：2 不能在 3 的右子树中，因为 2 < 3 。交换 2 和 3 使二叉搜索树有效。
- *
+ * - 输入：root = [3,1,4,null,null,2]
+ * - 输出：[2,1,4,null,null,3]
+ * - 解释：2 不能在 3 的右子树中，因为 2 < 3 。交换 2 和 3 使二叉搜索树有效。
  *
  *
- * 提示：
+ * ## 提示：
  *
- *
- * 树上节点的数目在范围 [2, 1000] 内
- * -2^31 <= Node.val <= 2^31 - 1
- *
- *
+ * - 树上节点的数目在范围 [2, 1000] 内
+ * - -2^31 <= Node.val <= 2^31 - 1
  *
  *
  * ## 进阶：
@@ -73,6 +68,7 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    /// # 恢复二叉搜索树
     /// ## 解题思路
     /// - 递归
     /// 1. 二叉搜索树进行中序遍历时, 各节点值将保持顺序递增, 即node[i].val < node[i+1].val;
@@ -121,7 +117,7 @@ impl Solution {
 
         let mut pairs = (None, None);
         find_unorder_pairs(root, &mut None, &mut pairs);
-        if let (Some(mut node1), Some(mut node2)) = pairs {
+        if let (Some(node1), Some(node2)) = pairs {
             std::mem::swap(&mut node1.borrow_mut().val, &mut node2.borrow_mut().val);
         }
     }

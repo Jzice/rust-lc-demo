@@ -1,17 +1,18 @@
-/*
+/*!
+ * # [279.完全平方数](https://leetcode.cn/problems/perfect-squares/description/)
+ *
  * @lc app=leetcode.cn id=279 lang=rust
  *
- * [279] 完全平方数
+ * ## 难度
  *
- * https://leetcode.cn/problems/perfect-squares/description/
+ * - Medium (66.22%)
+ * - Likes:    1773
+ * - Dislikes: 0
+ * - Total Accepted:    423.8K
+ * - Total Submissions: 639.7K
+ * - Testcase Example:  '12'
  *
- * algorithms
- * Medium (66.22%)
- * Likes:    1773
- * Dislikes: 0
- * Total Accepted:    423.8K
- * Total Submissions: 639.7K
- * Testcase Example:  '12'
+ * ## 问题描述
  *
  * 给你一个整数 n ，返回 和为 n 的完全平方数的最少数量 。
  *
@@ -20,26 +21,23 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
+ *
+ * - 输入：n = 12
+ * - 输出：3
+ * - 解释：12 = 4 + 4 + 4
  *
  *
- * 输入：n = 12
- * 输出：3
- * 解释：12 = 4 + 4 + 4
+ * ## 示例 2：
  *
- * 示例 2：
- *
- *
- * 输入：n = 13
- * 输出：2
- * 解释：13 = 4 + 9
+ * - 输入：n = 13
+ * - 输出：2
+ * - 解释：13 = 4 + 9
  *
  *
  * 提示：
  *
- *
- * 1 <= n <= 10^4
- *
+ * - 1 <= n <= 10^4
  *
  */
 
@@ -47,6 +45,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # 完全平方数
     /// ## 解题思路
     /// - bfs
     pub fn num_squares1(n: i32) -> i32 {
@@ -55,7 +54,7 @@ impl Solution {
         let mut res = 0;
         let mut q = VecDeque::new();
         q.push_back(n);
-        let mut found = false;
+        let found = false;
         while !found && !q.is_empty() {
             res += 1;
             for _ in 0..q.len() {
@@ -75,6 +74,7 @@ impl Solution {
         res
     }
 
+    /// # 完全平方数
     /// - 动态规划
     /// 1. 设: dp[i]: i的完全平方数个数
     /// 2. 目标: dp[n]

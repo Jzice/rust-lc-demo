@@ -1,17 +1,17 @@
 /*!
+ * # [1.两数之和](https://leetcode.cn/problems/two-sum/description)
+ *
  * @lc app=leetcode.cn id=1 lang=rust
  *
- * # [1] 两数之和
+ * ## 难度
+ * - Easy (47.11%)
+ * - Likes:    7621
+ * - Dislikes: 0
+ * - Total Accepted:    814.7K
+ * - Total Submissions: 1.7M
+ * - Testcase Example:  '[2,7,11,15]\n9'
  *
- * https://leetcode.cn/problems/two-sum/description/
- *
- * algorithms
- * * Easy (47.11%)
- * * Likes:    7621
- * * Dislikes: 0
- * * Total Accepted:    814.7K
- * * Total Submissions: 1.7M
- * * Testcase Example:  '[2,7,11,15]\n9'
+ * ## 问题描述
  *
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
  *
