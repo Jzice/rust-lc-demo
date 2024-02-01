@@ -1,17 +1,17 @@
 /*!
+ * # [2.两数相加](https://leetcode.cn/problems/add-two-numbers/description/)
+ *
  * @lc app=leetcode.cn id=2 lang=rust
  *
- * # [2] 两数相加
- *
- * https://leetcode.cn/problems/add-two-numbers/description/
- *
- * algorithms
+ * ## 难度
  * - Medium (36.17%)
  * - Likes:    3748
  * - Dislikes: 0
  * - Total Accepted:    301.1K
  * - Total Submissions: 827.7K
  * - Testcase Example:  '[2,4,3]\n[5,6,4]'
+ *
+ * ## 问题描述
  *
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。
  *
@@ -24,7 +24,6 @@
  * - 输入：(2 -> 4 -> 3) + (5 -> 6 -> 4)
  * - 输出：7 -> 0 -> 8
  * - 原因：342 + 465 = 807
- *
  *
  */
 
@@ -47,7 +46,7 @@ use super::*;
 //   }
 // }
 impl Solution {
-    /// # 2.两数相加
+    /// # 两数相加
     /// ## 解题思路
     /// 1. 新建一个空链表d；
     /// 2. 依次从头取出l1,l2的各个节点，计算对应节点数字和；
