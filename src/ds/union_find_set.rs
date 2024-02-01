@@ -3,15 +3,15 @@
 
 /// 并查集
 pub struct UnionFindSet {
-    // 元素个数
+    // 不同集的个数
     n: usize,           
-    // 集合数组
+    // 元素数组. 数组下标表示元素值, 数组值表示连接的元素
     pa: Vec<usize>,     
 }
 
 impl UnionFindSet {
 
-    /// 新建大小为n的并查集
+    /// 新建初始大小为n的并查集
     pub fn new(n: usize) -> Self {
         UnionFindSet {
             n,
@@ -58,16 +58,16 @@ mod tests {
     #[test]
     fn test() {
         let mut ufs = UnionFindSet::new(10);
+        assert_eq!(ufs.size(), 10);
+        assert_eq!(ufs.find(0), 0);
+        assert_eq!(ufs.find(5), 5);
+        assert_eq!(ufs.size(), 10);
 
-        assert!(ufs.size() == 10);
-        assert!(ufs.find(0) == 0);
-        assert!(ufs.find(5) == 5);
-        assert!(ufs.size() == 10);
         ufs.union(0, 5);
-        assert!(ufs.size() == 9);
-        assert!(ufs.is_connect(0, 5));
-        assert!(ufs.find(0) == 5);
-        assert!(ufs.find(5) == 5);
+        assert_eq!(ufs.size(), 9);
+        assert_eq!(ufs.is_connect(0, 5), true);
+        assert_eq!(ufs.find(0), 5);
+        assert_eq!(ufs.find(5), 5);
     }
 }
 

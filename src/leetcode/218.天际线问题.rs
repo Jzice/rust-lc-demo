@@ -1,11 +1,9 @@
-/*
+/*!
+ * # [218.天际线问题](https://leetcode.cn/problems/the-skyline-problem/description/)
+ *
  * @lc app=leetcode.cn id=218 lang=rust
  *
- * [218] 天际线问题
- *
- * https://leetcode.cn/problems/the-skyline-problem/description/
- *
- * algorithms
+ * ## 难度
  * Hard (54.24%)
  * Likes:    591
  * Dislikes: 0
@@ -13,15 +11,15 @@
  * Total Submissions: 62.3K
  * Testcase Example:  '[[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]'
  *
+ * ## 问题描述
+ *
  * 城市的天际线是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。给你所有建筑物的位置和高度，请返回由这些建筑物形成的 天际线 。
  *
  * 每个建筑物的几何信息由数组 buildings 表示，其中三元组 buildings[i] = [lefti, righti, heighti]
  * 表示：
- *
- *
- * lefti 是第 i 座建筑物左边缘的 x 坐标。
- * righti 是第 i 座建筑物右边缘的 x 坐标。
- * heighti 是第 i 座建筑物的高度。
+ * - lefti 是第 i 座建筑物左边缘的 x 坐标。
+ * - righti 是第 i 座建筑物右边缘的 x 坐标。
+ * - heighti 是第 i 座建筑物的高度。
  *
  *
  * 天际线 应该表示为由 “关键点” 组成的列表，格式 [[x1,y1],[x2,y2],...] ，并按 x 坐标 进行 排序
@@ -32,32 +30,25 @@
  * 是不正确的答案；三条高度为 5 的线应该在最终输出中合并为一个：[...[2 3], [4 5], [12 7], ...]
  *
  *
+ * ## 示例 1：
  *
- * 示例 1：
- *
- *
- * 输入：buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
- * 输出：[[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]
- * 解释：
+ * - 输入：buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]
+ * - 输出：[[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]
+ * - 解释：
  * 图 A 显示输入的所有建筑物的位置和高度，
  * 图 B 显示由这些建筑物形成的天际线。图 B 中的红点表示输出列表中的关键点。
  *
- * 示例 2：
+ * ## 示例 2：
+ *
+ * - 输入：buildings = [[0,2,3],[2,5,3]]
+ * - 输出：[[0,3],[5,0]]
  *
  *
- * 输入：buildings = [[0,2,3],[2,5,3]]
- * 输出：[[0,3],[5,0]]
+ * ## 提示：
  *
- *
- *
- *
- * 提示：
- *
- *
- * 1
- * 0 i < righti
- * 1 i
- * buildings 按 lefti 非递减排序
+ * - 0 i < righti
+ * - 1 i
+ * - buildings 按 lefti 非递减排序
  *
  *
  */
@@ -66,6 +57,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # 天际线问题
     /// ## 解题思路
     /// - 分治+归并
     /// 1. 整体所有矩形的天际线 = merge(左半部分矩形天际线, 右半部分天际线)
@@ -101,7 +93,7 @@ impl Solution {
             let left_res = get_skyline_by_range(buildings, start, mid);
             let right_res = get_skyline_by_range(buildings, mid, end);
 
-            let (mut x, mut hl, mut hr) = (0, 0, 0);
+            let (mut x, mut hl, mut hr): (i32, i32, i32) = (0, 0, 0);
             let (mut l, mut r) = (0, 0);
             // 合并 left_res, right_res
             while l < left_res.len() || r < right_res.len() {

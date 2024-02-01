@@ -67,6 +67,12 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    /// # 相同的树
+    /// ## 基本思想
+    /// - 递归
+    /// 1. 二叉树相等, 包含以下条件：
+    /// - 根节点值相等;
+    /// - 左右子树都相等;
     pub fn is_same_tree(
         p: Option<Rc<RefCell<TreeNode>>>,
         q: Option<Rc<RefCell<TreeNode>>>,
@@ -83,3 +89,37 @@ impl Solution {
     }
 }
 // @lc code=end
+//
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::btree;
+    use crate::ds::binary_tree::to_tree;
+
+    #[test]
+    fn test() {
+        assert_eq!( Solution::is_same_tree( btree![1, 2, 3], btree![1, 2, 3], ), true);
+        assert_eq!( Solution::is_same_tree( btree![1, 2, 4], btree![1, 2, 3], ), false);
+        assert_eq!( 
+            Solution::is_same_tree(
+                to_tree(vec![Some(1), None, Some(2)]), 
+                to_tree(vec![Some(1), None, Some(2)]), 
+            ),
+            true
+        );
+        assert_eq!( 
+            Solution::is_same_tree(
+                to_tree(vec![Some(1), Some(2)]), 
+                to_tree(vec![Some(1), None, Some(3)]), 
+            ),
+            false
+        );
+        assert_eq!( 
+            Solution::is_same_tree(
+                to_tree(vec![Some(1), Some(2), Some(1)]), 
+                to_tree(vec![Some(1), Some(1), Some(2)]), 
+            ),
+            false
+        );
+    }
+}

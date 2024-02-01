@@ -1,17 +1,18 @@
-/*
+/*!
+ * # [2386.找出数组的第 K 大和](https://leetcode.cn/problems/find-the-k-sum-of-an-array/description/)
+ *
  * @lc app=leetcode.cn id=2386 lang=rust
  *
- * [2386] 找出数组的第 K 大和
+ * ## 难度
  *
- * https://leetcode.cn/problems/find-the-k-sum-of-an-array/description/
+ * - Hard (42.26%)
+ * - Likes:    73
+ * - Dislikes: 0
+ * - Total Accepted:    4.1K
+ * - Total Submissions: 9.7K
+ * - Testcase Example:  '[2,4,-2]\n5'
  *
- * algorithms
- * Hard (42.26%)
- * Likes:    73
- * Dislikes: 0
- * Total Accepted:    4.1K
- * Total Submissions: 9.7K
- * Testcase Example:  '[2,4,-2]\n5'
+ * ## 问题描述
  *
  * 给你一个整数数组 nums 和一个 正 整数 k 。你可以选择数组的任一 子序列 并且对其全部元素求和。
  *
@@ -25,31 +26,28 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
- * 输入：nums = [2,4,-2], k = 5
- * 输出：2
- * 解释：所有可能获得的子序列和列出如下，按递减顺序排列：
- * - 6、4、4、2、2、0、0、-2
- * 数组的第 5 大和是 2 。
- *
- *
- * 示例 2：
- *
- * 输入：nums = [1,-2,3,4,-10,12], k = 16
- * 输出：10
- * 解释：数组的第 16 大和是 10 。
+ * - 输入：nums = [2,4,-2], k = 5
+ * - 输出：2
+ * - 解释：所有可能获得的子序列和列出如下，按递减顺序排列：
+ *   - 6、4、4、2、2、0、0、-2
+ *   - 数组的第 5 大和是 2 。
  *
  *
+ * ## 示例 2：
+ *
+ * - 输入：nums = [1,-2,3,4,-10,12], k = 16
+ * - 输出：10
+ * - 解释：数组的第 16 大和是 10 。
  *
  *
- * 提示：
+ * ## 提示：
  *
- *
- * n == nums.length
- * 1 <= n <= 10^5
- * -10^9 <= nums[i] <= 10^9
- * 1 <= k <= min(2000, 2^n)
+ * - n == nums.length
+ * - 1 <= n <= 10^5
+ * - -10^9 <= nums[i] <= 10^9
+ * - 1 <= k <= min(2000, 2^n)
  *
  *
  */
@@ -117,7 +115,7 @@ impl Solution {
         use std::collections::BinaryHeap;
 
         // 计算所有非负元素组成的最大子序列和
-        let mut sum = nums
+        let sum = nums
             .iter()
             .map(|&n| n as i64)
             .filter(|&n| n > 0)

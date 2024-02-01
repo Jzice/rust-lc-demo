@@ -25,33 +25,50 @@ impl TreeNode {
     }
 }
 
+/// 数组转化为二叉树
 pub fn to_tree(vec: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
     use std::collections::VecDeque;
-    let head = Some(Rc::new(RefCell::new(TreeNode::new(vec[0].unwrap()))));
-    let mut queue = VecDeque::new();
-    queue.push_back(head.as_ref().unwrap().clone());
+    if vec.len() == 0 {
+        return None;
+    }
+    if let Some(val) = vec[0] {
+        let mut queue = VecDeque::new();
+        let head = Rc::new(RefCell::new(TreeNode::new(val)));
+        queue.push_back(Some(head.clone()));
 
-    for children in vec[1..].chunks(2) {
-        let parent = queue.pop_front().unwrap();
-        if let Some(v) = children[0] {
-            parent.borrow_mut().left = Some(Rc::new(RefCell::new(TreeNode::new(v))));
-            queue.push_back(parent.borrow().left.as_ref().unwrap().clone());
-        }
-        if children.len() > 1 {
-            if let Some(v) = children[1] {
-                parent.borrow_mut().right = Some(Rc::new(RefCell::new(TreeNode::new(v))));
-                queue.push_back(parent.borrow().right.as_ref().unwrap().clone());
+        // 每次从数组中取两个, 作为队列头节点的左右子节点
+        for children in vec[1..].chunks(2) {
+            match queue.pop_front() {
+                Some(p) if let Some(parent) = p.clone() => {
+                    if let Some(v) = children[0] {
+                        let left = Rc::new(RefCell::new(TreeNode::new(v)));
+                        parent.borrow_mut().left = Some(left.clone()); 
+                        queue.push_back(Some(left));
+                    }
+                    if children.len() > 1 {
+                        if let Some(v) = children[1] {
+                            let right = Rc::new(RefCell::new(TreeNode::new(v)));
+                            parent.borrow_mut().right = Some(right.clone());
+                            queue.push_back(Some(right));
+                        }
+                    }
+                }
+                Some(_) => {
+                    queue.push_back(None);
+                }
+                None => {
+                        }
             }
         }
+        Some(head)
+    } else {
+        return None;
     }
-    head
 }
 
 #[macro_export]
-macro_rules! tree {
-    () => {
-        None
-    };
+macro_rules! btree {
+    () => { None };
     ($($e:expr),*) => {
         {
             let vec = vec![$(stringify!($e)), *];
