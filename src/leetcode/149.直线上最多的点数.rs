@@ -1,45 +1,39 @@
 /*
+ * # [149.直线上最多的点数](https://leetcode.cn/problems/max-points-on-a-line/description/)
+ *
  * @lc app=leetcode.cn id=149 lang=rust
  *
- * [149] 直线上最多的点数
+ * ## 难度
  *
- * https://leetcode.cn/problems/max-points-on-a-line/description/
+ * - Hard (39.34%)
+ * - Likes:    505
+ * - Dislikes: 0
+ * - Total Accepted:    81.2K
+ * - Total Submissions: 206K
+ * - Testcase Example:  '[[1,1],[2,2],[3,3]]'
  *
- * algorithms
- * Hard (39.34%)
- * Likes:    505
- * Dislikes: 0
- * Total Accepted:    81.2K
- * Total Submissions: 206K
- * Testcase Example:  '[[1,1],[2,2],[3,3]]'
+ * ## 问题描述
  *
  * 给你一个数组 points ，其中 points[i] = [xi, yi] 表示 X-Y 平面上的一个点。求最多有多少个点在同一条直线上。
  *
  *
+ * ## 示例 1：
  *
- * 示例 1：
- *
- *
- * 输入：points = [[1,1],[2,2],[3,3]]
- * 输出：3
+ * - 输入：points = [[1,1],[2,2],[3,3]]
+ * - 输出：3
  *
  *
- * 示例 2：
+ * ## 示例 2：
+ *
+ * - 输入：points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
+ * - 输出：4
  *
  *
- * 输入：points = [[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]
- * 输出：4
+ * ## 提示：
  *
- *
- *
- *
- * 提示：
- *
- *
- * 1
- * points[i].length == 2
- * -10^4 i, yi
- * points 中的所有点 互不相同
+ * - points[i].length == 2
+ * - -10^4 i, yi
+ * - points 中的所有点 互不相同
  *
  *
  */
@@ -66,7 +60,7 @@ impl Solution {
         // 辗转相除法计算a, b最大公约数
         fn gcd(a: i32, b: i32) -> i32 {
             assert!(a != 0 && b != 0);
-            let (mut a, mut b) = (a.abs(), b.abs());
+            let (a, b) = (a.abs(), b.abs());
             let (mut a, mut b) = if a > b { (a, b) } else { (b, a) };
             while a % b != 0 {
                 let c = a % b;

@@ -71,8 +71,8 @@ macro_rules! btree {
     () => { None };
     ($($e:expr),*) => {
         {
-            let vec = vec![$(stringify!($e)), *];
-            let vec = vec.into_iter().map(|v| v.parse::<i32>().ok()).collect::<Vec<_>>();
+            let vec = vec![$($e), *];
+            //let vec = vec.into_iter().map(|v| v.parse::<i32>().ok()).collect::<Vec<_>>();
             to_tree(vec)
         }
     };
@@ -115,7 +115,7 @@ mod tests {
 
     #[test]
     fn test() {
-        //let mut t1 = tree!(vec![1, 2, 3]);
+        let mut t1 = btree![Some(1), None, Some(3)];
         //let t1_pre_iter = PreorderIter::new(t1.as_ref());
 
         // assert_eq!(t1_pre_iter.next(), Some(Rc::new(RefCell::new(TreeNode::new(1)))).as_ref());

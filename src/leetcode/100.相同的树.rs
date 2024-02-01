@@ -98,28 +98,40 @@ mod tests {
 
     #[test]
     fn test() {
-        assert_eq!( Solution::is_same_tree( btree![1, 2, 3], btree![1, 2, 3], ), true);
-        assert_eq!( Solution::is_same_tree( btree![1, 2, 4], btree![1, 2, 3], ), false);
         assert_eq!( 
-            Solution::is_same_tree(
-                to_tree(vec![Some(1), None, Some(2)]), 
-                to_tree(vec![Some(1), None, Some(2)]), 
-            ),
+            Solution::is_same_tree( 
+                btree![Some(1), Some(2), Some(3)], 
+                btree![Some(1), Some(2), Some(3)] 
+            ), 
             true
         );
         assert_eq!( 
+            Solution::is_same_tree( 
+                btree![Some(1), Some(2), Some(3)], 
+                btree![Some(1), Some(2), Some(4)] 
+            ), 
+            false
+        );
+        assert_eq!( 
+            Solution::is_same_tree( 
+                btree![Some(1), Some(2), Some(3)], 
+                btree![Some(1), None, Some(3)] 
+            ), 
+            false
+        );
+        assert_eq!( 
             Solution::is_same_tree(
-                to_tree(vec![Some(1), Some(2)]), 
-                to_tree(vec![Some(1), None, Some(3)]), 
+                btree![Some(1), Some(2)], 
+                btree![Some(1), None, Some(2)], 
             ),
             false
         );
         assert_eq!( 
             Solution::is_same_tree(
-                to_tree(vec![Some(1), Some(2), Some(1)]), 
-                to_tree(vec![Some(1), Some(1), Some(2)]), 
+                btree![Some(1), Some(2)], 
+                btree![Some(1), Some(2), None], 
             ),
-            false
+            true
         );
     }
 }
