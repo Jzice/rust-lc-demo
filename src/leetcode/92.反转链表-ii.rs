@@ -1,27 +1,30 @@
 /*!
+ * # [92.反转链表II](https://leetcode.cn/problems/reverse-linked-list-ii/description/)
+ *
  * @lc app=leetcode.cn id=92 lang=rust
  *
- * # [92] 反转链表 II
+ * ## 难度
  *
- * https://leetcode.cn/problems/reverse-linked-list-ii/description/
+ * - Medium (49.10%)
+ * - Likes:    304
+ * - Dislikes: 0
+ * - Total Accepted:    34.8K
+ * - Total Submissions: 70.9K
+ * - Testcase Example:  '[1,2,3,4,5]\n2\n4'
  *
- * algorithms
- * Medium (49.10%)
- * Likes:    304
- * Dislikes: 0
- * Total Accepted:    34.8K
- * Total Submissions: 70.9K
- * Testcase Example:  '[1,2,3,4,5]\n2\n4'
+ *
+ * ## 问题描述
  *
  * 反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
  *
- * 说明:
- * 1 ≤ m ≤ n ≤ 链表长度。
+ * ## 说明:
  *
- * 示例:
+ * - 1 ≤ m ≤ n ≤ 链表长度。
  *
- * 输入: 1->2->3->4->5->NULL, m = 2, n = 4
- * 输出: 1->4->3->2->5->NULL
+ * ## 示例:
+ *
+ * - 输入: 1->2->3->4->5->NULL, m = 2, n = 4
+ * - 输出: 1->4->3->2->5->NULL
  *
  */
 
@@ -45,6 +48,7 @@ use super::*;
 //   }
 // }
 impl Solution {
+    /// # 反转链表II
     pub fn reverse_between(head: Option<Box<ListNode>>, m: i32, n: i32) -> Option<Box<ListNode>> {
         if head.is_none() || n <= m {
             return head;

@@ -1,57 +1,51 @@
 /*!
+ * # [19.删除链表的倒数第N个结点]( https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/)
+ *
  * @lc app=leetcode.cn id=19 lang=rust
  *
- * # [19] 删除链表的倒数第 N 个结点
+ * ## 难度
  *
- * https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
+ * - Medium (45.32%)
+ * - Likes:    2477
+ * - Dislikes: 0
+ * - Total Accepted:    1.1M
+ * - Total Submissions: 2.4M
+ * - Testcase Example:  '[1,2,3,4,5]\n2'
  *
- * algorithms
- * Medium (45.32%)
- * Likes:    2477
- * Dislikes: 0
- * Total Accepted:    1.1M
- * Total Submissions: 2.4M
- * Testcase Example:  '[1,2,3,4,5]\n2'
+ * ## 问题描述
  *
  * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
  *
  *
+ * ## 示例 1：
  *
- * 示例 1：
- *
- *
- * 输入：head = [1,2,3,4,5], n = 2
- * 输出：[1,2,3,5]
+ * - 输入：head = [1,2,3,4,5], n = 2
+ * - 输出：[1,2,3,5]
  *
  *
- * 示例 2：
+ * ## 示例 2：
+ *
+ * - 输入：head = [1], n = 1
+ * - 输出：[]
  *
  *
- * 输入：head = [1], n = 1
- * 输出：[]
+ * ## 示例 3：
+ *
+ * - 输入：head = [1,2], n = 1
+ * - 输出：[1]
  *
  *
- * 示例 3：
+ * ## 提示：
+ *
+ * - 链表中结点的数目为 sz
+ * - 1 <= sz <= 30
+ * - 0 <= Node.val <= 100
+ * - 1 <= n <= sz
  *
  *
- * 输入：head = [1,2], n = 1
- * 输出：[1]
+ * ## 进阶：
  *
- *
- *
- *
- * 提示：
- *
- *
- * 链表中结点的数目为 sz
- * 1 <= sz <= 30
- * 0 <= Node.val <= 100
- * 1 <= n <= sz
- *
- *
- *
- *
- * 进阶：你能尝试使用一趟扫描实现吗？
+ * 你能尝试使用一趟扫描实现吗？
  *
  */
 
@@ -75,6 +69,7 @@ use super::*;
 //   }
 // }
 impl Solution {
+    /// # 删除链表的倒数第N个结点
     /// ## 解题思路
     /// - 双指针 + dummy node
     /// 1. 在原表头前面增加一个dummy, 以统一处理原head结点需要处理的情况;

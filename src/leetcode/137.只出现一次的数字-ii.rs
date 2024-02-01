@@ -1,52 +1,50 @@
 /*!
+ * # [137.只出现一次的数字II](https://leetcode.cn/problems/single-number-ii/description/)
+ *
  * @lc app=leetcode.cn id=137 lang=rust
  *
- * # [137] 只出现一次的数字 II
  *
- * https://leetcode.cn/problems/single-number-ii/description/
+ * ## 难度
  *
- * algorithms
- * Medium (71.78%)
- * Likes:    1044
- * Dislikes: 0
- * Total Accepted:    156.7K
- * Total Submissions: 218.5K
- * Testcase Example:  '[2,2,3,2]'
+ * - Medium (71.78%)
+ * - Likes:    1044
+ * - Dislikes: 0
+ * - Total Accepted:    156.7K
+ * - Total Submissions: 218.5K
+ * - Testcase Example:  '[2,2,3,2]'
+ *
+ *
+ * ## 问题描述
  *
  * 给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
  *
  * 你必须设计并实现线性时间复杂度的算法且不使用额外空间来解决此问题。
  *
  *
- *
  * ## 示例 1：
  *
- *
- * 输入：nums = [2,2,3,2]
- * 输出：3
+ * - 输入：nums = [2,2,3,2]
+ * - 输出：3
  *
  *
  * ## 示例 2：
  *
- *
- * 输入：nums = [0,1,0,1,0,1,99]
- * 输出：99
- *
+ * - 输入：nums = [0,1,0,1,0,1,99]
+ * - 输出：99
  *
  *
+ * ## 提示：
  *
- * 提示：
- *
- *
- * 1 <= nums.length <= 3 * 10^4
- * -2^31 <= nums[i] <= 2^31 - 1
- * nums 中，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次
+ * - 1 <= nums.length <= 3 * 10^4
+ * - -2^31 <= nums[i] <= 2^31 - 1
+ * - nums 中，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次
  *
  *
  */
-struct Solution;
+use super::*;
 // @lc code=start
 impl Solution {
+    /// # 只出现一次的数字II
     /// ## 解题思路
     /// - 位运算
     /// 1. 设nums的唯一一次元素为ans;

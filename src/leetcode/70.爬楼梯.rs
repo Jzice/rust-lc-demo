@@ -1,17 +1,19 @@
-/*
+/*!
+ * # [70.爬楼梯](https://leetcode.cn/problems/climbing-stairs/description/)
+ *
  * @lc app=leetcode.cn id=70 lang=rust
  *
- * [70] 爬楼梯
+ * ## 难度
  *
- * https://leetcode.cn/problems/climbing-stairs/description/
+ * - Easy (47.88%)
+ * - Likes:    856
+ * - Dislikes: 0
+ * - Total Accepted:    139.1K
+ * - Total Submissions: 290.2K
+ * - Testcase Example:  '2'
  *
- * algorithms
- * Easy (47.88%)
- * Likes:    856
- * Dislikes: 0
- * Total Accepted:    139.1K
- * Total Submissions: 290.2K
- * Testcase Example:  '2'
+ *
+ * ## 问题描述
  *
  * 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
  *
@@ -19,27 +21,27 @@
  *
  * 注意：给定 n 是一个正整数。
  *
- * 示例 1：
+ * ## 示例 1：
  *
- * 输入： 2
- * 输出： 2
- * 解释： 有两种方法可以爬到楼顶。
- * 1.  1 阶 + 1 阶
- * 2.  2 阶
+ * - 输入： 2
+ * - 输出： 2
+ * - 解释： 有两种方法可以爬到楼顶。
+ *   1. 1 阶 + 1 阶
+ *   2. 2 阶
  *
- * 示例 2：
+ * ## 示例 2：
  *
- * 输入： 3
- * 输出： 3
- * 解释： 有三种方法可以爬到楼顶。
- * 1.  1 阶 + 1 阶 + 1 阶
- * 2.  1 阶 + 2 阶
- * 3.  2 阶 + 1 阶
+ * - 输入： 3
+ * - 输出： 3
+ * - 解释： 有三种方法可以爬到楼顶。
+ *   1. 1 阶 + 1 阶 + 1 阶
+ *   2. 1 阶 + 2 阶
+ *   3. 2 阶 + 1 阶
  *
  *
  */
 
-struct Solution;
+use super::*;
 
 // @lc code=start
 impl Solution {
