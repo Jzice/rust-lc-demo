@@ -1,17 +1,18 @@
-/*
+/*!
+ * # [877.石子游戏]( https://leetcode.cn/problems/stone-game/description/)
+ *
  * @lc app=leetcode.cn id=877 lang=rust
  *
- * [877] 石子游戏
+ * ## 难度
  *
- * https://leetcode.cn/problems/stone-game/description/
+ * - Medium (76.30%)
+ * - Likes:    455
+ * - Dislikes: 0
+ * - Total Accepted:    86.5K
+ * - Total Submissions: 113.4K
+ * - Testcase Example:  '[5,3,4,5]'
  *
- * algorithms
- * Medium (76.30%)
- * Likes:    455
- * Dislikes: 0
- * Total Accepted:    86.5K
- * Total Submissions: 113.4K
- * Testcase Example:  '[5,3,4,5]'
+ * ## 问题描述
  *
  * Alice 和 Bob 用几堆石子在做游戏。一共有偶数堆石子，排成一行；每堆都有 正 整数颗石子，数目为 piles[i] 。
  *
@@ -23,13 +24,11 @@
  * 假设 Alice 和 Bob 都发挥出最佳水平，当 Alice 赢得比赛时返回 true ，当 Bob 赢得比赛时返回 false 。
  *
  *
+ * ## 示例 1：
  *
- * 示例 1：
- *
- *
- * 输入：piles = [5,3,4,5]
- * 输出：true
- * 解释：
+ * - 输入：piles = [5,3,4,5]
+ * - 输出：true
+ * - 解释：
  * Alice 先开始，只能拿前 5 颗或后 5 颗石子 。
  * 假设他取了前 5 颗，这一行就变成了 [3,4,5] 。
  * 如果 Bob 拿走前 3 颗，那么剩下的是 [4,5]，Alice 拿走后 5 颗赢得 10 分。
@@ -37,29 +36,25 @@
  * 这表明，取前 5 颗石子对 Alice 来说是一个胜利的举动，所以返回 true 。
  *
  *
- * 示例 2：
+ * ## 示例 2：
+ *
+ * - 输入：piles = [3,7,2,3]
+ * - 输出：true
  *
  *
- * 输入：piles = [3,7,2,3]
- * 输出：true
+ * # 提示：
  *
- *
- *
- *
- * 提示：
- *
- *
- * 2 <= piles.length <= 500
- * piles.length 是 偶数
- * 1 <= piles[i] <= 500
- * sum(piles[i]) 是 奇数
- *
+ * - 2 <= piles.length <= 500
+ * - piles.length 是 偶数
+ * - 1 <= piles[i] <= 500
+ * - sum(piles[i]) 是 奇数
  *
  */
-struct Solution;
+use super::*;
 
 // @lc code=start
 impl Solution {
+    /// # 石子游戏
     /// ## 解题思路
     /// - 动态规划
     /// 1. 令dp[i][j]表示剩下piles[i..j]石子时，当前玩家所得石子的最大差；
@@ -86,3 +81,14 @@ impl Solution {
     }
 }
 // @lc code=end
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(Solution::stone_game(vec![5,3,4,5]) ,true);
+        assert_eq!(Solution::stone_game(vec![3,7,2,3]) ,true);
+    }
+}

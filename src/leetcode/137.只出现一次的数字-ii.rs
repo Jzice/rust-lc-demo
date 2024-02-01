@@ -41,7 +41,9 @@
  *
  *
  */
-use super::*;
+
+struct Solution;
+
 // @lc code=start
 impl Solution {
     /// # 只出现一次的数字II
