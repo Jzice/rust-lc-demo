@@ -57,8 +57,60 @@ use super::*;
 // @lc code=start
 impl Solution {
     pub fn check_if_can_break(s1: String, s2: String) -> bool {
-        todo!()
+        let mut sc1 = s1.chars()
+            .into_iter().collect::<Vec<_>>();
+
+        sc1.sort();
+
+        let mut sc2 = s2.chars()
+            .into_iter().collect::<Vec<_>>();
+
+        sc2.sort();
+
+        sc1.clone().into_iter()
+            .zip(sc2.clone().into_iter())
+            .all(|(c1, c2)| c1 <= c2)
+            ||
+        sc1.into_iter()
+            .zip(sc2.into_iter())
+            .all(|(c1, c2)| c1 >= c2)
     }
 }
 // @lc code=end
 
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(
+            Solution::check_if_can_break(
+                "abc".to_string(), 
+                "xya".to_string()
+            ), 
+            true
+        );
+        assert_eq!(
+            Solution::check_if_can_break(
+                "abe".to_string(), 
+                "acd".to_string()
+            ), 
+            false
+        );
+        assert_eq!(
+            Solution::check_if_can_break(
+                "leetcode".to_string(), 
+                "interview".to_string()
+            ), 
+            true
+        );
+        assert_eq!(
+            Solution::check_if_can_break(
+                "szy".to_string(), 
+                "cid".to_string()
+            ), 
+            true
+        );
+    }
+}
