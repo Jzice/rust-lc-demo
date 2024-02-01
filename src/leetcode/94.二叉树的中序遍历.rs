@@ -1,11 +1,10 @@
 /*!
+ * # [94.二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/description/)
+ *
  * @lc app=leetcode.cn id=94 lang=rust
  *
- * # [94] 二叉树的中序遍历
+ * ## 难度
  *
- * https://leetcode.cn/problems/binary-tree-inorder-traversal/description/
- *
- * algorithms
  * Medium (70.23%)
  * Likes:    406
  * Dislikes: 0
@@ -13,20 +12,24 @@
  * Total Submissions: 155.6K
  * Testcase Example:  '[1,null,2,3]'
  *
+ * ## 问题描述
+ *
  * 给定一个二叉树，返回它的中序 遍历。
  *
- * 示例:
+ * ## 示例:
  *
- * 输入: [1,null,2,3]
+ * - 输入: [1,null,2,3]
  * ⁠  1
  * ⁠   \
  * ⁠    2
  * ⁠   /
  * ⁠  3
  *
- * 输出: [1,3,2]
+ * - 输出: [1,3,2]
  *
- * 进阶: 递归算法很简单，你可以通过迭代算法完成吗？
+ * ## 进阶: 
+ *
+ * 递归算法很简单，你可以通过迭代算法完成吗？
  *
  */
 
@@ -55,7 +58,10 @@ use std::cell::RefCell;
 use std::iter;
 use std::rc::Rc;
 impl Solution {
+    /// # 二叉树的中序遍历
     /// ## 解题思路
+    /// - 递归
+    /// - 迭代+栈
     pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
         /// - 递归
         /// 中序遍历顺序: 左->根->右
@@ -103,12 +109,6 @@ impl Solution {
 
             res
         }
-
-        // let mut res = vec![];
-        // inorder_rec(&root, &mut res);
-        // res
-
-        // inorder_iter(&root).collect()
 
         inorder_stack(&root)
     }

@@ -50,7 +50,6 @@
  * - 1 i
  * - buildings 按 lefti 非递减排序
  *
- *
  */
 
 struct Solution;

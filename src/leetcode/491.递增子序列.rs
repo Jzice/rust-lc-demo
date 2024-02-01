@@ -1,5 +1,5 @@
 /*!
- * # [491.递增子序列](https://leetcode.cn/problems/non-decreasing-subsequences/description/]
+ * # [491.递增子序列](https://leetcode.cn/problems/non-decreasing-subsequences/description/)
  *
  * @lc app=leetcode.cn id=491 lang=rust
  *

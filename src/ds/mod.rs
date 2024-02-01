@@ -1,7 +1,5 @@
 //! # 数据结构
 
-#![feature(if_let_guard)]
-
 pub mod skip_list;          // 跳表
 pub mod trie_tree;          // 字典树
 pub mod union_find_set;     // 并查集

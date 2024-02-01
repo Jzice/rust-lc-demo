@@ -115,7 +115,7 @@ mod tests {
 
     #[test]
     fn test() {
-        let mut t1 = btree![Some(1), None, Some(3)];
+        // let mut t1 = btree![Some(1), None, Some(3)];
         //let t1_pre_iter = PreorderIter::new(t1.as_ref());
 
         // assert_eq!(t1_pre_iter.next(), Some(Rc::new(RefCell::new(TreeNode::new(1)))).as_ref());

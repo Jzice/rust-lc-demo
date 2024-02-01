@@ -26,9 +26,8 @@
 pub fn bubble_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
-    let mut sorted = true;          //
     for i in 1..nums.len() {        // 外层控制遍历的次数
-        sorted = true;
+        let mut sorted = true;
         for j in 0..nums.len()-i {  // 内存控制每次遍历比较的次数
             if nums[j] > nums[j+1] {
                 nums.swap(j, j+1);
@@ -50,9 +49,8 @@ pub fn cocktail_shaker_sort<T>(nums: &mut Vec<T>)
 {
     let L = nums.len();
     let mut i = 0;
-    let mut sorted = true;
     while i + 1 < L - i {
-        sorted = true;
+        let mut sorted = true;
         for k in i..(L-1-i) {
             if  nums[k] > nums[k+1] {
                 nums.swap(k, k+1);
