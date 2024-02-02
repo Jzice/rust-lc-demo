@@ -1,5 +1,5 @@
 /*!
- * # [2386.找出数组的第 K 大和](https://leetcode.cn/problems/find-the-k-sum-of-an-array/description/)
+ * # [2386.找出数组的第K大和](https://leetcode.cn/problems/find-the-k-sum-of-an-array/description/)
  *
  * @lc app=leetcode.cn id=2386 lang=rust
  *

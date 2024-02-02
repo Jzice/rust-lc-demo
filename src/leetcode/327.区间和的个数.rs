@@ -1,9 +1,10 @@
-/*
+/*!
  * @lc app=leetcode.cn id=327 lang=rust
  *
  * [327] 区间和的个数
- *
- * https://leetcode.cn/problems/count-of-range-sum/description/
+ (
+ https://leetcode.cn/problems/count-of-range-sum/description/
+ )
  *
  * algorithms
  * Hard (40.69%)

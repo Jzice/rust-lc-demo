@@ -1,9 +1,7 @@
 /*!
+ * # [301.删除无效的括号](https://leetcode.cn/problems/remove-invalid-parentheses/description/)
+ *
  * @lc app=leetcode.cn id=301 lang=rust
- *
- * # [301] 删除无效的括号
- *
- * https://leetcode.cn/problems/remove-invalid-parentheses/description/
  *
  * ## algorithms
  * - Hard (55.14%)
@@ -13,53 +11,38 @@
  * - Total Submissions: 158.2K
  * - Testcase Example:  '"()())()"'
  *
+ * ## 问题描述
+ *
  * 给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
  *
  * 返回所有可能的结果。答案可以按 任意顺序 返回。
  *
- *
- *
  * ## 示例 1：
- *
- *
- * 输入：s = "()())()"
- * 输出：["(())()","()()()"]
- *
+ * - 输入：s = "()())()"
+ * - 输出：["(())()","()()()"]
  *
  * ## 示例 2：
- *
- *
- * 输入：s = "(a)())()"
- * 输出：["(a())()","(a)()()"]
- *
+ * - 输入：s = "(a)())()"
+ * - 输出：["(a())()","(a)()()"]
  *
  * ## 示例 3：
+ * - 输入：s = ")("
+ * - 输出：[""]
  *
- *
- * 输入：s = ")("
- * 输出：[""]
- *
- *
- *
- *
- * 提示：
- *
- *
- * 1
- * s 由小写英文字母以及括号 '(' 和 ')' 组成
- * s 中至多含 20 个括号
- *
+ * ## 提示：
+ * - s 由小写英文字母以及括号 '(' 和 ')' 组成
+ * - s 中至多含 20 个括号
  *
  */
-
+struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # 删除无效的括号
     /// ## 解题思路
     /// - 广度优先搜索
     /// 1. 依次删除s中的各个字符；
     /// 2. 使用一个hashset记录每次删除后的字符串；
-    /// 3.
     pub fn remove_invalid_parentheses(s: String) -> Vec<String> {
         let mut level = std::collections::HashSet::new();
         level.insert(s); //
@@ -115,8 +98,6 @@ impl Solution {
 }
 // @lc code=end
 //
-struct Solution;
-
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -1,54 +1,42 @@
-/*
+/*!
+ * # [316.去除重复字母](https://leetcode.cn/problems/remove-duplicate-letters/description/)
+ *
  * @lc app=leetcode.cn id=316 lang=rust
  *
- * [316] 去除重复字母
+ * ## 难度
+ * - Medium (48.25%)
+ * - Likes:    906
+ * - Dislikes: 0
+ * - Total Accepted:    112.8K
+ * - Total Submissions: 233.9K
+ * - Testcase Example:  '"bcabc"'
  *
- * https://leetcode.cn/problems/remove-duplicate-letters/description/
- *
- * algorithms
- * Medium (48.25%)
- * Likes:    906
- * Dislikes: 0
- * Total Accepted:    112.8K
- * Total Submissions: 233.9K
- * Testcase Example:  '"bcabc"'
+ * ## 问题描述
  *
  * 给你一个字符串 s ，请你去除字符串中重复的字母，使得每个字母只出现一次。需保证 返回结果的字典序最小（要求不能打乱其他字符的相对位置）。
  *
+ * ## 示例 1：
+ * - 输入：s = "bcabc"
+ * - 输出："abc"
  *
+ * ## 示例 2：
+ * - 输入：s = "cbacdcbc"
+ * - 输出："acdb"
  *
- * 示例 1：
+ * ## 提示：
+ * - 1 <= s.length <= 10^4
+ * - s 由小写英文字母组成
  *
- *
- * 输入：s = "bcabc"
- * 输出："abc"
- *
- *
- * 示例 2：
- *
- *
- * 输入：s = "cbacdcbc"
- * 输出："acdb"
- *
- *
- *
- * 提示：
- *
- *
- * 1 <= s.length <= 10^4
- * s 由小写英文字母组成
- *
- *
- *
- *
- * 注意：该题与 1081
- * https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters
- * 相同
+ * ## 注意：
+ * 该题与[1081](https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters)相同
  *
  */
 
+use super::*;
+
 // @lc code=start
 impl Solution {
+    /// # 去除重复字母
     /// ## 解题思路
     /// - 单调栈
     /// 1. 字符串中, 如果s[i]>s[i+1], 即当前一个字母字典序比后一个字符大，则删除当前字符s[i]后,字符串的字典序将变小;
@@ -89,4 +77,3 @@ impl Solution {
 }
 // @lc code=end
 
-struct Solution;

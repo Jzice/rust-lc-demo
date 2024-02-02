@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [31.下一个排列](https://leetcode.cn/problems/next-permutation/description/)
+ *
  * @lc app=leetcode.cn id=31 lang=rust
  *
- * [31] 下一个排列
+ * ## 难度
+ * - Medium (37.32%)
+ * - Likes:    1391
+ * - Dislikes: 0
+ * - Total Accepted:    224.9K
+ * - Total Submissions: 603.2K
+ * - Testcase Example:  '[1,2,3]'
  *
- * https://leetcode.cn/problems/next-permutation/description/
- *
- * algorithms
- * Medium (37.32%)
- * Likes:    1391
- * Dislikes: 0
- * Total Accepted:    224.9K
- * Total Submissions: 603.2K
- * Testcase Example:  '[1,2,3]'
+ * ## 问题描述
  *
  * 实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列（即，组合出下一个更大的整数）。
  *
@@ -20,52 +20,35 @@
  * 必须 原地 修改，只允许使用额外常数空间。
  *
  *
+ * ## 示例 1：
+ * - 输入：nums = [1,2,3]
+ * - 输出：[1,3,2]
  *
- * 示例 1：
+ * ## 示例 2：
+ * - 输入：nums = [3,2,1]
+ * - 输出：[1,2,3]
  *
+ * ## 示例 3：
+ * - 输入：nums = [1,1,5]
+ * - 输出：[1,5,1]
  *
- * 输入：nums = [1,2,3]
- * 输出：[1,3,2]
+ * ## 示例 4：
+ * - 输入：nums = [1]
+ * - 输出：[1]
  *
- *
- * 示例 2：
- *
- *
- * 输入：nums = [3,2,1]
- * 输出：[1,2,3]
- *
- *
- * 示例 3：
- *
- *
- * 输入：nums = [1,1,5]
- * 输出：[1,5,1]
- *
- *
- * 示例 4：
- *
- *
- * 输入：nums = [1]
- * 输出：[1]
- *
- *
- *
- *
- * 提示：
- *
- *
- * 1 <= nums.length <= 100
- * 0 <= nums[i] <= 100
- *
- *
+ * ## 提示：
+ * - 1 <= nums.length <= 100
+ * - 0 <= nums[i] <= 100
  */
 
+use super::*;
 
 // @lc code=start
 impl Solution {
+    /// # 下一个排列
     /// ## 解题思路：
     /// - 交换
-    /// 1. 从右往左，找到第一个nums[i-1]<nums[i]的i;
+    /// 1. 从右往左,找到第一个nums[i-1]<nums[i]的i;
     /// 2. 然后再从[i+1..]中查找比nums[i-1]大的最小数nums[j];
     /// 3. 交换nums[i-1],nums[j];
     /// 4. 交换后，重新按从小到大排列nums[i..]；
@@ -100,8 +83,6 @@ impl Solution {
     }
 }
 // @lc code=end
-
-struct Solution;
 
 #[cfg(test)]
 mod tests {

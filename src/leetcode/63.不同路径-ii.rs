@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [63.不同路径II](https://leetcode.cn/problems/unique-paths-ii/description/)
+ *
  * @lc app=leetcode.cn id=63 lang=rust
  *
- * [63] 不同路径 II
+ * ## 难度
+ * - Medium (41.00%)
+ * - Likes:    1045
+ * - Dislikes: 0
+ * - Total Accepted:    370.1K
+ * - Total Submissions: 902.2K
+ * - Testcase Example:  '[[0,0,0],[0,1,0],[0,0,0]]'
  *
- * https://leetcode.cn/problems/unique-paths-ii/description/
- *
- * algorithms
- * Medium (41.00%)
- * Likes:    1045
- * Dislikes: 0
- * Total Accepted:    370.1K
- * Total Submissions: 902.2K
- * Testcase Example:  '[[0,0,0],[0,1,0],[0,0,0]]'
+ * ## 问题描述
  *
  * 一个机器人位于一个 m x n 网格的左上角 （起始点在下图中标记为 “Start” ）。
  *
@@ -22,42 +22,33 @@
  * 网格中的障碍物和空位置分别用 1 和 0 来表示。
  *
  *
- *
- * 示例 1：
- *
- *
- * 输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
- * 输出：2
- * 解释：3x3 网格的正中间有一个障碍物。
+ * ## 示例 1：
+ * - 输入：obstacleGrid = [[0,0,0],[0,1,0],[0,0,0]]
+ * - 输出：2
+ * - 解释：3x3 网格的正中间有一个障碍物。
  * 从左上角到右下角一共有 2 条不同的路径：
  * 1. 向右 -> 向右 -> 向下 -> 向下
  * 2. 向下 -> 向下 -> 向右 -> 向右
  *
  *
- * 示例 2：
+ * ## 示例 2：
+ * - 输入：obstacleGrid = [[0,1],[0,0]]
+ * - 输出：1
  *
- *
- * 输入：obstacleGrid = [[0,1],[0,0]]
- * 输出：1
- *
- *
- *
- *
- * 提示：
- *
- *
- * m == obstacleGrid.length
- * n == obstacleGrid[i].length
- * 1 <= m, n <= 100
- * obstacleGrid[i][j] 为 0 或 1
+ * ## 提示：
+ * - m == obstacleGrid.length
+ * - n == obstacleGrid[i].length
+ * - 1 <= m, n <= 100
+ * - obstacleGrid[i][j] 为 0 或 1
  *
  *
  */
 
-struct Solution;
+use super::*;
 
 // @lc code=start
 impl Solution {
+    /// # 不同路径II
     /// ## 解题思路
     /// - 动态规划
     /// 1. 设dp[m][n]: mxn网格的不同路径数;
