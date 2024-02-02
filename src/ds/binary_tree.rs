@@ -72,7 +72,6 @@ macro_rules! btree {
     ($($e:expr),*) => {
         {
             let vec = vec![$($e), *];
-            //let vec = vec.into_iter().map(|v| v.parse::<i32>().ok()).collect::<Vec<_>>();
             to_tree(vec)
         }
     };

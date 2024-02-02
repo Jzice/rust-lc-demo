@@ -1,69 +1,45 @@
 /*!
+ * # [144.二叉树的前序遍历](https://leetcode.cn/problems/binary-tree-preorder-traversal/description/)
+ *
  * @lc app=leetcode.cn id=144 lang=rust
  *
- * # [144] 二叉树的前序遍历
+ * ## 难度
+ * - Easy (70.42%)
+ * - Likes:    666
+ * - Dislikes: 0
+ * - Total Accepted:    428.8K
+ * - Total Submissions: 608.9K
+ * - Testcase Example:  '[1,null,2,3]'
  *
- * https://leetcode.cn/problems/binary-tree-preorder-traversal/description/
- *
- * algorithms
- * Easy (70.42%)
- * Likes:    666
- * Dislikes: 0
- * Total Accepted:    428.8K
- * Total Submissions: 608.9K
- * Testcase Example:  '[1,null,2,3]'
- *
+ * ## 问题描述
  * 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
  *
+ * ## 示例 1：
+ * - 输入：root = [1,null,2,3]
+ * - 输出：[1,2,3]
  *
+ * ## 示例 2：
+ * - 输入：root = []
+ * - 输出：[]
  *
- * 示例 1：
+ * ## 示例 3：
+ * - 输入：root = [1]
+ * - 输出：[1]
  *
+ * ## 示例 4：
+ * - 输入：root = [1,2]
+ * - 输出：[1,2]
  *
- * 输入：root = [1,null,2,3]
- * 输出：[1,2,3]
+ * ## 示例 5：
+ * - 输入：root = [1,null,2]
+ * - 输出：[1,2]
  *
+ * ## 提示：
+ * - 树中节点数目在范围 [0, 100] 内
+ * - -100
  *
- * 示例 2：
- *
- *
- * 输入：root = []
- * 输出：[]
- *
- *
- * 示例 3：
- *
- *
- * 输入：root = [1]
- * 输出：[1]
- *
- *
- * 示例 4：
- *
- *
- * 输入：root = [1,2]
- * 输出：[1,2]
- *
- *
- * 示例 5：
- *
- *
- * 输入：root = [1,null,2]
- * 输出：[1,2]
- *
- *
- *
- *
- * 提示：
- *
- *
- * 树中节点数目在范围 [0, 100] 内
- * -100
- *
- *
- *
- *
- * 进阶：递归算法很简单，你可以通过迭代算法完成吗？
+ * ## 进阶：
+ * 递归算法很简单，你可以通过迭代算法完成吗？
  *
  */
 
@@ -92,6 +68,7 @@ use std::cell::RefCell;
 use std::iter;
 use std::rc::Rc;
 impl Solution {
+    /// # 二叉树的前序遍历
     /// ## 解题思路
     /// - 前序遍历顺序： 根节点 -> 左子树 -> 右子树
     pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
@@ -154,3 +131,23 @@ impl Solution {
     }
 }
 // @lc code=end
+//
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::btree;
+
+    #[test]
+    fn test() {
+        assert_eq!(
+            Solution::preorder_traversal(btree![Some(1), Some(2)]),
+            vec![1, 2]
+        );
+        assert_eq!(
+            Solution::preorder_traversal(btree![Some(1), None, Some(2), Some(3)]),
+            vec![1, 2, 3]
+        );
+        
+    }
+}

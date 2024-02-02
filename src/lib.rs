@@ -4,6 +4,7 @@
 #![allow(missing_docs)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(unused_assignments)]
 #![allow(unused_doc_comments)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]

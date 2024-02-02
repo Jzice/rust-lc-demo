@@ -156,7 +156,7 @@ pub fn merge_sort<T>(nums: &mut Vec<T>)
 
 /// # 希尔排序
 /// ## 基本思想
-/// 1. 
+/// 1. 分组插入
 pub fn shell_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd + Copy
 {
@@ -221,29 +221,29 @@ pub fn heap_sort<T>(nums: &mut Vec<T>)
 
 /// # 快速排序
 /// ## 基本思想
-/// 1. 在待排序数组中选定一个基准元素pivot；
-/// 2. 以基准元素为标准, 将待排序数组划分为前后两个部分,
-///    使前一部分的任意元素都< 基准元素,
-///    而后一部分的任意元素都> 基准元素;
-/// 3. 分别对两个部分重复上述操作, 直到数组长度<2;
+/// 1. 在待排序序列中选定一个基准元素pivot；
+/// 2. 以基准元素为标准, 将待排序数组划分为前后两个部分, 使得:
+///    - 前一部分的每个元素都< 基准元素,
+///    - 后一部分的每个元素都> 基准元素;
+/// 3. 分别对两个部分重复上述操作, 直到长度<2;
 pub fn quick_sort<T>(nums: &mut Vec<T>)
     where T: PartialOrd
 {
-    // 将nums划分为前后两个部分, 使前一部分都小于后一部分, 返回划分点
+    /// 将nums划分为前后两个部分, 使前一部分都小于后一部分, 返回划分点
     fn _partition<T: PartialOrd>(nums: &mut [T]) -> usize {
-        let mut m = 0;              // 划分点
-        let p = nums.len() - 1;     // 基准元素下标
-        for i in 0..p {             // 依次遍历所有非基准元素
-            if nums[i] <= nums[p] { // 如果当前元素<基准元素
-                nums.swap(i, m);    // 将其和划分点元素交换
-                m += 1;             // 往后移动划分点
+        let mut p = 0;              // 划分点
+        let vi = nums.len() - 1;     // 选定尾部元素作为基准元素
+        for i in 0..vi {             // 依次遍历所有非基准元素
+            if nums[i] <= nums[vi] { // 如果当前元素<基准元素
+                nums.swap(i, p);    // 将其和划分点元素交换
+                p += 1;             // 后移划分点
             }
         }
-        nums.swap(m, p);            // 最后, 将基准元素和划分点元素交换
-        m                           // 返回划分点
+        nums.swap(p, vi);            // 最后, 将基准元素和划分点元素交换
+        p                           // 返回划分点
     }
 
-    // 递归快排
+    /// 递归快排
     fn _quick_sort<T: PartialOrd>(nums: &mut [T]) {
         if nums.len() < 2 {
             return;
@@ -254,6 +254,72 @@ pub fn quick_sort<T>(nums: &mut Vec<T>)
     }
 
     _quick_sort(&mut nums[..]);
+}
+
+/// # 计数排序
+/// ## 基本思路
+/// - 空间换时间
+/// 1. 计算nums中的最小值mi, 最大值ma;
+/// 2. 按(ma-mi+1)大小申请count[]计数数组;
+/// 3. 遍历nums, 统计其中每个元素n出现的次数, 将其计入n-ma为下标的count中;
+/// 4. 遍历count, 计算每个下标累加的出现的次数;
+/// 5. 复制一份nums副本;
+/// 6. 遍历nums副本, 将各个元素n按照count中相对于mi的累加次数重新放置到原数组nums中;
+pub fn count_sort(nums: &mut Vec<i32>) {
+    if nums.len() == 0 {
+        return;
+    }
+    let mi = *nums.iter().min().unwrap();
+    let ma = *nums.iter().max().unwrap();
+    let mut count = vec![0; (ma - mi + 1) as usize];
+    // 统计每个数字出现的次数
+    for n in nums.clone() {
+        count[(n-mi) as usize] += 1;
+    }
+    // 统计每个数字出现的次数累加值
+    for i in 1..count.len() {
+        count[i] += count[i-1];
+    }
+    // 按累加值重新排序
+    for n in nums.clone() {
+        nums[count[(n - mi) as usize]-1] = n;
+        count[(n-mi) as usize] -= 1;
+    }
+}
+
+/// # 桶排序
+/// ## 基本思想
+/// - 计数排序的变种
+/// 1. 桶是一个二级数组；
+/// 2. 通过一个映射函数, 先将待排序序列中的各个元素映射到不同的桶中
+/// 3. 然后再分别对桶中的元素进行排序;
+/// 4. 最后依次将各个桶中的元素合并, 得到完整有序的序列;
+pub fn bucket_sort(nums: &mut Vec<i32>) {
+    if nums.len() == 0 {
+        return;
+    }
+    let l = nums.len();
+    let (mi, ma) = (*nums.iter().min().unwrap(), *nums.iter().max().unwrap());  
+    if mi == ma {  
+        // 所有元素大小相等, 则不用排序
+        return;  
+    }
+    // 分配桶空间
+    let mut buckets = vec![Vec::<i32>::new(); l+1];
+    // 分桶, 将nums各个元素分到相应的桶中
+    for &n in nums.iter() {
+        let i = ((n - mi) as usize) * l / ((ma - mi) as usize);
+        buckets[i].push(n);
+    }
+    // 将各桶中元素排序, 然后按顺序放回原数组
+    let mut i = 0;
+    for mut b in buckets {
+        b.sort();
+        for n in b {
+            nums[i] = n;
+            i += 1;
+        }
+    }
 }
 
 
@@ -296,7 +362,10 @@ mod tests {
     }
 
     fn sort_fn_bench(sort_fn: SortFn) {
-        let mut nums1 = vec![10, 3, 26, 8, 7, 31];
+        let mut nums1 = vec![10, 3, 26, 8, 7, 31, -20, 55, 68, 128, 
+                            38, 101, -17, 9, 23, 84, 39, 205, 47, 27,
+                            83, 171, -51, 49, 35, 44, 90, 235, 73, 22,
+                        ];
         sort_fn(&mut nums1);
     }
 
@@ -340,30 +409,83 @@ mod tests {
         sort_fn_test(quick_sort);
     }
 
+    #[test]
+    fn count_sort_test() {
+        sort_fn_test(count_sort);
+    }
+
+    #[test]
+    fn bucket_sort_test() {
+        sort_fn_test(bucket_sort);
+    }
+
     #[bench]
     fn bubble_sort_bench(b: &mut Bencher) {
         b.iter(|| {
-            for _ in 100..2000 {
-                sort_fn_bench(bubble_sort);
-            }
+            sort_fn_bench(bubble_sort);
+        });
+    }
+
+    #[bench]
+    fn cocktail_shaker_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(cocktail_shaker_sort);
+        });
+    }
+
+    #[bench]
+    fn select_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(select_sort);
+        });
+    }
+
+    #[bench]
+    fn insert_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(insert_sort);
+        });
+    }
+
+    #[bench]
+    fn merge_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(merge_sort);
+        });
+    }
+
+    #[bench]
+    fn shell_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(shell_sort);
+        });
+    }
+
+    #[bench]
+    fn count_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(count_sort);
+        });
+    }
+
+    #[bench]
+    fn bucket_sort_bench(b: &mut Bencher) {
+        b.iter(|| {
+            sort_fn_bench(bucket_sort);
         });
     }
 
     #[bench]
     fn heap_sort_bench(b: &mut Bencher) {
         b.iter(|| {
-            for _ in 100..2000 {
-                sort_fn_bench(heap_sort);
-            }
+            sort_fn_bench(heap_sort);
         });
     }
 
     #[bench]
     fn quick_sort_bench(b: &mut Bencher) {
         b.iter(|| {
-            for _ in 100..2000 {
-                sort_fn_bench(quick_sort);
-            }
+             sort_fn_bench(quick_sort);
         });
     }
 }
