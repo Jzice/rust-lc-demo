@@ -1,30 +1,30 @@
 /*!
+ * # [82.删除排序链表中的重复元素II](https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/)
+ *
  * @lc app=leetcode.cn id=82 lang=rust
  *
- * # [82] 删除排序链表中的重复元素 II
+ * ## 难度
+ * - Medium (45.93%)
+ * - Likes:    221
+ * - Dislikes: 0
+ * - Total Accepted:    33.1K
+ * - Total Submissions: 71.9K
+ * - Testcase Example:  '[1,2,3,3,4,4,5]'
  *
- * https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/
- *
- * algorithms
- * Medium (45.93%)
- * Likes:    221
- * Dislikes: 0
- * Total Accepted:    33.1K
- * Total Submissions: 71.9K
- * Testcase Example:  '[1,2,3,3,4,4,5]'
+ * ## 问题描述
  *
  * 给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
  *
- * 示例 1:
+ * ## 示例 1:
  *
- * 输入: 1->2->3->3->4->4->5
- * 输出: 1->2->5
+ * - 输入: 1->2->3->3->4->4->5
+ * - 输出: 1->2->5
  *
  *
- * 示例 2:
+ * ## 示例 2:
  *
- * 输入: 1->1->1->2->3
- * 输出: 2->3
+ * - 输入: 1->1->1->2->3
+ * - 输出: 2->3
  *
  */
 
@@ -48,6 +48,7 @@ use super::*;
 //   }
 // }
 impl Solution {
+    /// # 删除排序链表中的重复元素II
     pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut dummy_head = Some(Box::new(ListNode::new(0)));
         let mut ptr = &mut dummy_head;

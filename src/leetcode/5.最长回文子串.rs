@@ -31,13 +31,13 @@
  *
  */
 
-struct Solution;
+use super::*;
 
 // @lc code=start
 impl Solution {
     /// # 最长回文子串
     /// ## 解题思路
-    /// * 动态规划
+    /// - 动态规划
     /// 1. 设: dp[i][j] 为s[i:j+1]是否为回文子串
     /// 2. 状态转移方程：
     ///     dp[i][j] = (s[i] == s[j] && dp[i+1][j-1])
@@ -70,7 +70,7 @@ impl Solution {
 
     /*
     /// ## 解题思路
-    /// * 滑动窗口
+    /// - 滑动窗口
     ///
     pub fn longest_palindrome(s: String) -> String {
         let mut window_size = s.len();

@@ -1,5 +1,4 @@
 /*!
- *
  * # [134.加油站]( https://leetcode.cn/problems/gas-station/description/)
  *
  * @lc app=leetcode.cn id=134 lang=rust

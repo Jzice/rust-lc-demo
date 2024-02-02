@@ -31,7 +31,7 @@ use super::*;
 
 // @lc code=start
 impl Solution {
-    /// # 1.两数之和
+    /// # 两数之和
     /// ## 解题思路
     /// - hashmap
     /// 1. 遍历序列；

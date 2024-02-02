@@ -1,17 +1,17 @@
 /*!
+ * # [1027.最长等差数列]( https://leetcode.cn/problems/longest-arithmetic-subsequence/description/)
+ *
  * @lc app=leetcode.cn id=1027 lang=rust
  *
- * # [1027] 最长等差数列
+ * ## 难度
+ * - Medium (45.06%)
+ * - Likes:    80
+ * - Dislikes: 0
+ * - Total Accepted:    7.4K
+ * - Total Submissions: 16.4K
+ * - Testcase Example:  '[3,6,9,12]'
  *
- * https://leetcode.cn/problems/longest-arithmetic-subsequence/description/
- *
- * algorithms
- * Medium (45.06%)
- * Likes:    80
- * Dislikes: 0
- * Total Accepted:    7.4K
- * Total Submissions: 16.4K
- * Testcase Example:  '[3,6,9,12]'
+ * ## 问题描述
  *
  * 给定一个整数数组 A，返回 A 中最长等差子序列的长度。
  *
@@ -23,43 +23,38 @@
  *
  * ## 示例 1：
  *
- * 输入：[3,6,9,12]
- * 输出：4
- * 解释：
+ * - 输入：[3,6,9,12]
+ * - 输出：4
+ * - 解释：
  * 整个数组是公差为 3 的等差数列。
  *
  *
  * ## 示例 2：
- *
- * 输入：[9,4,7,2,10]
- * 输出：3
- * 解释：
+ * - 输入：[9,4,7,2,10]
+ * - 输出：3
+ * - 解释：
  * 最长的等差子序列是 [4,7,10]。
  *
  *
  * ## 示例 3：
- *
- * 输入：[20,1,15,3,10,5,8]
- * 输出：4
- * 解释：
+ * - 输入：[20,1,15,3,10,5,8]
+ * - 输出：4
+ * - 解释：
  * 最长的等差子序列是 [20,15,10,5]。
  *
  *
- *
- *
- * 提示：
- *
- *
- * 2 <= A.length <= 2000
- * 0 <= A[i] <= 10000
+ * ## 提示：
+ * - 2 <= A.length <= 2000
+ * - 0 <= A[i] <= 10000
  *
  *
  */
 
-struct Solution;
+use super::*;
 
 // @lc code=start
 impl Solution {
+    /// # 最长等差数列
     /// ## 解题思路
     /// - 动态规划
     /// 1. 设dp[i][d]: 以a[i]为尾d为公差的最长等差序列长度;

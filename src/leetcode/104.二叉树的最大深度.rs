@@ -1,17 +1,17 @@
 /*!
+ * # [104.二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/)
+ *
  * @lc app=leetcode.cn id=104 lang=rust
  *
- * # [104] 二叉树的最大深度
+ * ## 难度
+ * - Easy (76.69%)
+ * - Likes:    1085
+ * - Dislikes: 0
+ * - Total Accepted:    586.2K
+ * - Total Submissions: 763.9K
+ * - Testcase Example:  '[3,9,20,null,null,15,7]'
  *
- * https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/
- *
- * algorithms
- * Easy (76.69%)
- * Likes:    1085
- * Dislikes: 0
- * Total Accepted:    586.2K
- * Total Submissions: 763.9K
- * Testcase Example:  '[3,9,20,null,null,15,7]'
+ * ## 问题描述
  *
  * 给定一个二叉树，找出其最大深度。
  *
@@ -20,13 +20,16 @@
  * 说明: 叶子节点是指没有子节点的节点。
  *
  * ## 示例：
+ *
  * 给定二叉树 [3,9,20,null,null,15,7]，
  *
- * ⁠   3
- * ⁠  / \
- * ⁠ 9  20
- * ⁠   /  \
- * ⁠  15   7
+ * ```text
+ *    3
+ *   / \
+ *  9  20
+ *    /  \
+ *   15   7
+ * ```
  *
  * 返回它的最大深度 3 。
  *
@@ -58,6 +61,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 impl Solution {
+    /// # 二叉树的最大深度
     /// ## 解题思路
     /// - 递归
     /// `max_depth = 1 + max(max_depth(left) + max_depth(right))`

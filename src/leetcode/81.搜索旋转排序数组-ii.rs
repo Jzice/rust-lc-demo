@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [81.搜索旋转排序数组II]( https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/description/)
+ *
  * @lc app=leetcode.cn id=81 lang=rust
  *
- * [81] 搜索旋转排序数组 II
+ * ## 难度
+ * - Medium (40.98%)
+ * - Likes:    717
+ * - Dislikes: 0
+ * - Total Accepted:    199K
+ * - Total Submissions: 485.7K
+ * - Testcase Example:  '[2,5,6,0,0,1,2]\n0'
  *
- * https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/description/
- *
- * algorithms
- * Medium (40.98%)
- * Likes:    717
- * Dislikes: 0
- * Total Accepted:    199K
- * Total Submissions: 485.7K
- * Testcase Example:  '[2,5,6,0,0,1,2]\n0'
+ * ## 问题描述
  *
  * 已知存在一个按非降序排列的整数数组 nums ，数组中的值不必互不相同。
  *
@@ -24,47 +24,29 @@
  *
  * 你必须尽可能减少整个操作步骤。
  *
+ * ## 示例 1：
+ * - 输入：nums = [2,5,6,0,0,1,2], target = 0
+ * - 输出：true
  *
+ * ## 示例 2：
+ * - 输入：nums = [2,5,6,0,0,1,2], target = 3
+ * - 输出：false
  *
- * 示例 1：
+ * ## 提示：
+ * - 1 <= nums.length <= 5000
+ * - -10^4 <= nums[i] <= 10^4
+ * - 题目数据保证 nums 在预先未知的某个下标上进行了旋转
+ * - -10^4 <= target <= 10^4
  *
- *
- * 输入：nums = [2,5,6,0,0,1,2], target = 0
- * 输出：true
- *
- *
- * 示例 2：
- *
- *
- * 输入：nums = [2,5,6,0,0,1,2], target = 3
- * 输出：false
- *
- *
- *
- * 提示：
- *
- *
- * 1 <= nums.length <= 5000
- * -10^4 <= nums[i] <= 10^4
- * 题目数据保证 nums 在预先未知的某个下标上进行了旋转
- * -10^4 <= target <= 10^4
- *
- *
- *
- *
- * 进阶：
- *
- *
+ * ## 进阶：
  * 这是 搜索旋转排序数组 的延伸题目，本题中的 nums  可能包含重复元素。
  * 这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？
- *
- *
- *
  *
  */
 
 // @lc code=start
 impl Solution {
+    /// # 搜索旋转排序数组II
     /// ## 解题思路
     /// - 二分查找
     /// 1. 在<<33.搜索旋转排序数组>>题目基础上, 增加对重复数字的判断;

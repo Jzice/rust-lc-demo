@@ -1,11 +1,9 @@
 /*!
+ * # [102.二叉树的层次遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/description/)
+ *
  * @lc app=leetcode.cn id=102 lang=rust
  *
- * # [102] 二叉树的层次遍历
- *
- * https://leetcode.cn/problems/binary-tree-level-order-traversal/description/
- *
- * algorithms
+ * ## 难度
  * - Medium (60.88%)
  * - Likes:    391
  * - Dislikes: 0
@@ -13,25 +11,29 @@
  * - Total Submissions: 135.8K
  * - Testcase Example:  '[3,9,20,null,null,15,7]'
  *
+ * ## 问题描述
+ *
  * 给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点）。
  *
- * ## 例如:
  * 给定二叉树: [3,9,20,null,null,15,7],
  *
+ * ```text
  * ⁠   3
  * ⁠  / \
  * ⁠ 9  20
  * ⁠   /  \
  * ⁠  15   7
- *
+ * ```
  *
  * 返回其层次遍历结果：
  *
+ * ```text
  * [
  * ⁠ [3],
  * ⁠ [9,20],
  * ⁠ [15,7]
  * ]
+ * ```
  *
  *
  */

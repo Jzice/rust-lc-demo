@@ -1,17 +1,17 @@
 /*!
+ * # [746.使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/description/)
+ *
  * @lc app=leetcode.cn id=746 lang=rust
  *
- * # [746] 使用最小花费爬楼梯
+ * ## 难度
+ * - Easy (58.96%)
+ * - Likes:    691
+ * - Dislikes: 0
+ * - Total Accepted:    142.3K
+ * - Total Submissions: 240.6K
+ * - Testcase Example:  '[10,15,20]'
  *
- * https://leetcode.cn/problems/min-cost-climbing-stairs/description/
- *
- * algorithms
- * Easy (58.96%)
- * Likes:    691
- * Dislikes: 0
- * Total Accepted:    142.3K
- * Total Submissions: 240.6K
- * Testcase Example:  '[10,15,20]'
+ * ## 问题描述
  *
  * 数组的每个下标作为一个阶梯，第 i 个阶梯对应着一个非负数的体力花费值 cost[i]（下标从 0 开始）。
  *
@@ -19,43 +19,27 @@
  *
  * 请你找出达到楼层顶部的最低花费。在开始时，你可以选择从下标为 0 或 1 的元素作为初始阶梯。
  *
- *
- *
  * ## 示例 1：
- *
- *
- * 输入：cost = [10, 15, 20]
- * 输出：15
- * 解释：最低花费是从 cost[1] 开始，然后走两步即可到阶梯顶，一共花费 15 。
- *
+ * - 输入：cost = [10, 15, 20]
+ * - 输出：15
+ * - 解释：最低花费是从 cost[1] 开始，然后走两步即可到阶梯顶，一共花费 15 。
  *
  * ## 示例 2：
+ * - 输入：cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+ * - 输出：6
+ * - 解释：最低花费方式是从 cost[0] 开始，逐个经过那些 1 ，跳过 cost[3] ，一共花费 6 。
  *
- *
- * 输入：cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
- * 输出：6
- * 解释：最低花费方式是从 cost[0] 开始，逐个经过那些 1 ，跳过 cost[3] ，一共花费 6 。
- *
- *
- *
- *
- * 提示：
- *
- *
- * cost 的长度范围是 [2, 1000]。
- * cost[i] 将会是一个整型数据，范围为 [0, 999] 。
- *
+ * ## 提示：
+ * - cost 的长度范围是 [2, 1000]。
+ * - cost[i] 将会是一个整型数据，范围为 [0, 999] 。
  *
  */
 
 struct Solution;
 
 // @lc code=start
-use std::cmp;
-
 impl Solution {
-
-    /// # [746] 使用最小花费爬楼梯
+    /// # 使用最小花费爬楼梯
     /// ## 解题思路：
     /// 本题的题目描述存在一定的歧义.
     ///
@@ -101,7 +85,7 @@ impl Solution {
         let mut f1 = 0;
         let mut f2 = 0;
         for i in 2..=l {
-            f2 = cmp::min(f1 + cost[i - 1], f0 + cost[i - 2]);
+            f2 = std::cmp::min(f1 + cost[i - 1], f0 + cost[i - 2]);
             f0 = f1;
             f1 = f2;
         }

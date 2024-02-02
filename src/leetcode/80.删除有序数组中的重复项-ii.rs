@@ -1,23 +1,21 @@
-/*
+/*!
+ * # [80.删除有序数组中的重复项II](https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/description/)
+ *
  * @lc app=leetcode.cn id=80 lang=rust
  *
- * [80] 删除有序数组中的重复项 II
+ * ## 难度
+ * - Medium (61.65%)
+ * - Likes:    812
+ * - Dislikes: 0
+ * - Total Accepted:    241.2K
+ * - Total Submissions: 391.3K
+ * - Testcase Example:  '[1,1,1,2,2,3]'
  *
- * https://leetcode.cn/problems/remove-duplicates-from-sorted-array-ii/description/
- *
- * algorithms
- * Medium (61.65%)
- * Likes:    812
- * Dislikes: 0
- * Total Accepted:    241.2K
- * Total Submissions: 391.3K
- * Testcase Example:  '[1,1,1,2,2,3]'
+ * ## 问题描述
  *
  * 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使得出现次数超过两次的元素只出现两次 ，返回删除后数组的新长度。
  *
  * 不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
- *
- *
  *
  * 说明：
  *
@@ -27,7 +25,7 @@
  *
  * 你可以想象内部操作如下:
  *
- *
+ * ```cpp
  * // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
  * int len = removeDuplicates(nums);
  *
@@ -36,42 +34,30 @@
  * for (int i = 0; i < len; i++) {
  * print(nums[i]);
  * }
+ * ```
  *
- *
- *
- *
- * 示例 1：
- *
- *
- * 输入：nums = [1,1,1,2,2,3]
- * 输出：5, nums = [1,1,2,2,3]
- * 解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 。
+ * ## 示例 1：
+ * - 输入：nums = [1,1,1,2,2,3]
+ * - 输出：5, nums = [1,1,2,2,3]
+ * - 解释：函数应返回新长度 length = 5, 并且原数组的前五个元素被修改为 1, 1, 2, 2, 3 。
  * 不需要考虑数组中超出新长度后面的元素。
  *
  *
- * 示例 2：
- *
- *
- * 输入：nums = [0,0,1,1,1,1,2,3,3]
- * 输出：7, nums = [0,0,1,1,2,3,3]
- * 解释：函数应返回新长度 length = 7, 并且原数组的前五个元素被修改为 0, 0, 1, 1, 2, 3, 3 。
+ * ## 示例 2：
+ * - 输入：nums = [0,0,1,1,1,1,2,3,3]
+ * - 输出：7, nums = [0,0,1,1,2,3,3]
+ * - 解释：函数应返回新长度 length = 7, 并且原数组的前五个元素被修改为 0, 0, 1, 1, 2, 3, 3 。
  * 不需要考虑数组中超出新长度后面的元素。
  *
- *
- *
- *
- * 提示：
- *
- *
- * 1 <= nums.length <= 3 * 10^4
- * -10^4 <= nums[i] <= 10^4
- * nums 已按升序排列
- *
- *
+ * ## 提示：
+ * - 1 <= nums.length <= 3 * 10^4
+ * - -10^4 <= nums[i] <= 10^4
+ * - nums 已按升序排列
  */
 
 // @lc code=start
 impl Solution {
+    /// # 删除有序数组中的重复项II
     /// ## 解题思路
     /// - 双指针
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
