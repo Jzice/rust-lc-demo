@@ -1,51 +1,34 @@
 /*!
+ * # [203.移除链表元素](https://leetcode.cn/problems/remove-linked-list-elements/description/)
+ *
  * @lc app=leetcode.cn id=203 lang=rust
  *
- * # [203] 移除链表元素
+ * ## 难度
+ * - Easy (54.76%)
+ * - Likes:    1199
+ * - Dislikes: 0
+ * - Total Accepted:    524.2K
+ * - Total Submissions: 957.1K
+ * - Testcase Example:  '[1,2,6,3,4,5,6]\n6'
  *
- * https://leetcode.cn/problems/remove-linked-list-elements/description/
- *
- * algorithms
- * Easy (54.76%)
- * Likes:    1199
- * Dislikes: 0
- * Total Accepted:    524.2K
- * Total Submissions: 957.1K
- * Testcase Example:  '[1,2,6,3,4,5,6]\n6'
+ * ## 问题描述
  *
  * 给你一个链表的头节点 head 和一个整数 val ，请你删除链表中所有满足 Node.val == val 的节点，并返回 新的头节点 。
  *
- *
  * ## 示例 1：
- *
- *
- * 输入：head = [1,2,6,3,4,5,6], val = 6
- * 输出：[1,2,3,4,5]
- *
+ * - 输入：head = [1,2,6,3,4,5,6], val = 6
+ * - 输出：[1,2,3,4,5]
  *
  * ## 示例 2：
- *
- *
- * 输入：head = [], val = 1
- * 输出：[]
- *
+ * - 输入：head = [], val = 1
+ * - 输出：[]
  *
  * ## 示例 3：
- *
- *
- * 输入：head = [7,7,7,7], val = 7
- * 输出：[]
- *
- *
- *
+ * - 输入：head = [7,7,7,7], val = 7
+ * - 输出：[]
  *
  * ## 提示：
- *
- *
- * 列表中的节点数目在范围 [0, 10^4] 内
- * 1
- * 0
- *
+ * - 列表中的节点数目在范围 [0, 10^4] 内
  *
  */
 

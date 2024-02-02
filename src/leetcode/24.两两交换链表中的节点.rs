@@ -1,26 +1,24 @@
 /*!
+ * # [24.两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/description/)
+ *
  * @lc app=leetcode.cn id=24 lang=rust
  *
- * # [24] 两两交换链表中的节点
+ * ## 难度
+ * - Medium (63.29%)
+ * - Likes:    359
+ * - Dislikes: 0
+ * - Total Accepted:    58.3K
+ * - Total Submissions: 92.2K
+ * - Testcase Example:  '[1,2,3,4]'
  *
- * https://leetcode.cn/problems/swap-nodes-in-pairs/description/
- *
- * algorithms
- * Medium (63.29%)
- * Likes:    359
- * Dislikes: 0
- * Total Accepted:    58.3K
- * Total Submissions: 92.2K
- * Testcase Example:  '[1,2,3,4]'
+ * ## 问题描述
  *
  * 给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
  *
  * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
  *
  *
- *
- * 示例:
- *
+ * ## 示例:
  * 给定 1->2->3->4, 你应该返回 2->1->4->3.
  *
  *
@@ -46,6 +44,7 @@ use super::*;
 //   }
 // }
 impl Solution {
+    /// # 两两交换链表中的节点
     /// ## 解题思路
     /// - 指针交换
     pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
