@@ -51,7 +51,7 @@ impl Solution {
     /// 1. 从右往左,找到第一个nums[i-1]<nums[i]的i;
     /// 2. 然后再从[i+1..]中查找比nums[i-1]大的最小数nums[j];
     /// 3. 交换nums[i-1],nums[j];
-    /// 4. 交换后，重新按从小到大排列nums[i..]；
+    /// 4. 交换后,重新按从小到大排列nums[i..]；
     pub fn next_permutation(nums: &mut Vec<i32>) {
         let len = nums.len();
         if len < 2 {
