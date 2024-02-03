@@ -47,12 +47,13 @@ impl Solution {
     /// # 最大子数组和
     /// ## 解题思路
     /// - 动态规划
-    /// 1. 设 dp[i]: 以nums[i]为尾的最大连续子数组和
+    /// 1. 设 dp[i]: 以nums[i]为尾的最大连续子数组和;
     /// 2. 则 dp[i] = max(dp[i-1]+nums[i], nums[i])
     /// 3. 初始条件: dp[0] = nums[0]
     /// 4. 目标值: max(dp[i])
     pub fn max_sub_array1(nums: Vec<i32>) -> i32 {
         let n = nums.len();
+        assert!(n > 0);
         let mut dp = vec![0; n];
         dp[0] = nums[0];
         let mut res = dp[0];
@@ -67,6 +68,7 @@ impl Solution {
     /// - 优化: dp[i]只和dp[i-1]相关, 可用两个整形变量代替;
     pub fn max_sub_array(nums: Vec<i32>) -> i32 {
         let n = nums.len();
+        assert!(n > 0);
         let mut dp = nums[0];
         let mut res = dp;
         for i in 1..n {
@@ -78,3 +80,15 @@ impl Solution {
     }
 }
 // @lc code=end
+//
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn test() {
+        // assert_eq!(Solution::max_sub_array(vec![]), 0);
+        assert_eq!(Solution::max_sub_array(vec![-2,1,-3,4,-1,2,1,-5,4]), 6);
+        assert_eq!(Solution::max_sub_array(vec![1]), 1);
+        assert_eq!(Solution::max_sub_array(vec![5,4,-1,7,8]), 23);
+    }
+}

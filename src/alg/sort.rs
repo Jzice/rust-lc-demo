@@ -120,7 +120,7 @@ pub fn select_sort<T>(nums: &mut Vec<T>)
 pub fn merge_sort<T>(nums: &mut Vec<T>) 
     where T: PartialOrd + Copy + Clone
 {
-    // 将数组左右两个有序的部分合并, 使整体有序
+    /// 将数组左右两个有序的部分合并, 使整体有序
     fn _merge<T>(nums: &mut Vec<T>, start: usize, mid: usize, end: usize)
          where T: PartialOrd + Copy + Clone
     {
@@ -138,7 +138,7 @@ pub fn merge_sort<T>(nums: &mut Vec<T>)
         }
     }
 
-    // 递归归并排序
+    /// 递归归并排序
     fn _merge_sort<T>(nums: &mut Vec<T>, start: usize, end: usize)
          where T: PartialOrd + Copy + Clone
     {
