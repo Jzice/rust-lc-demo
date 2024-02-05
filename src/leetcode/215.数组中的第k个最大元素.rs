@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [215.数组中的第K个最大元素](https://leetcode.cn/problems/kth-largest-element-in-an-array/description/)
+ *
  * @lc app=leetcode.cn id=215 lang=rust
  *
- * [215] 数组中的第K个最大元素
+ * ## 难度
+ * - Medium (64.03%)
+ * - Likes:    2092
+ * - Dislikes: 0
+ * - Total Accepted:    825.4K
+ * - Total Submissions: 1.3M
+ * - Testcase Example:  '[3,2,1,5,6,4]\n2'
  *
- * https://leetcode.cn/problems/kth-largest-element-in-an-array/description/
- *
- * algorithms
- * Medium (64.03%)
- * Likes:    2092
- * Dislikes: 0
- * Total Accepted:    825.4K
- * Total Submissions: 1.3M
- * Testcase Example:  '[3,2,1,5,6,4]\n2'
+ * ## 问题描述
  *
  * 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
  *
@@ -19,29 +19,17 @@
  *
  * 你必须设计并实现时间复杂度为 O(n) 的算法解决此问题。
  *
- *
- *
- * 示例 1:
- *
- *
+ * ## 示例 1:
  * 输入: [3,2,1,5,6,4], k = 2
  * 输出: 5
  *
- *
- * 示例 2:
- *
- *
+ * ## 示例 2:
  * 输入: [3,2,3,1,2,4,5,5,6], k = 4
  * 输出: 4
  *
- *
- *
- * 提示：
- *
- *
- * 1 <= k <= nums.length <= 10^5
- * -10^4 <= nums[i] <= 10^4
- *
+ * ## 提示：
+ * - 1 <= k <= nums.length <= 10^5
+ * - -10^4 <= nums[i] <= 10^4
  *
  */
 
@@ -49,6 +37,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// # 数组中的第K个最大元素
     /// ## 解题思路
     /// - 改进的快排
     /// 1. 快速排序在选择分割点时,分割点会将nums分为2部分,一部分都比基准值小,另一部分大;

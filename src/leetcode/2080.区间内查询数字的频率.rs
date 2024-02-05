@@ -1,18 +1,17 @@
-/*
+/*!
+ * # [2080.区间内查询数字的频率](https://leetcode.cn/problems/range-frequency-queries/description/)
+ *
  * @lc app=leetcode.cn id=2080 lang=rust
  *
- * [2080] 区间内查询数字的频率
+ * ## 难度
+ * - Medium (26.63%)
+ * - Likes:    27
+ * - Dislikes: 0
+ * - Total Accepted:    5K
+ * - Total Submissions: 18.7K
+ * - Testcase Example:  '["RangeFreqQuery","query","query"]\n' + '[[[12,33,4,56,22,2,34,33,22,12,34,56]],[1,2,4],[0,11,33]]'
  *
- * https://leetcode.cn/problems/range-frequency-queries/description/
- *
- * algorithms
- * Medium (26.63%)
- * Likes:    27
- * Dislikes: 0
- * Total Accepted:    5K
- * Total Submissions: 18.7K
- * Testcase Example:  '["RangeFreqQuery","query","query"]\n' +
-  '[[[12,33,4,56,22,2,34,33,22,12,34,56]],[1,2,4],[0,11,33]]'
+ * ## 问题描述
  *
  * 请你设计一个数据结构，它能求出给定子数组内一个给定值的 频率 。
  * 
@@ -20,42 +19,37 @@
  * 
  * 请你实现 RangeFreqQuery 类：
  * 
- * 
- * RangeFreqQuery(int[] arr) 用下标从 0 开始的整数数组 arr 构造一个类的实例。
- * int query(int left, int right, int value) 返回子数组 arr[left...right] 中 value 的
- * 频率 。
- * 
- * 
+ * ```cpp
+ * RangeFreqQuery(int[] arr); //用下标从 0 开始的整数数组 arr 构造一个类的实例。
+ * int query(int left, int right, int value); //返回子数组 arr[left...right] 中 value 的频率 。
+ * ```
+ *
  * 一个 子数组 指的是数组中一段连续的元素。arr[left...right] 指的是 nums 中包含下标 left 和 right 在内
  * 的中间一段连续元素。
  * 
+ * ## 示例 1：
  * 
- * 
- * 示例 1：
- * 
- * 输入：
+ * - 输入：
+ * ```text
  * ["RangeFreqQuery", "query", "query"]
  * [[[12, 33, 4, 56, 22, 2, 34, 33, 22, 12, 34, 56]], [1, 2, 4], [0, 11, 33]]
- * 输出：
- * [null, 1, 2]
+ * ```
+ *
+ * - 输出：[null, 1, 2]
  * 
- * 解释：
- * RangeFreqQuery rangeFreqQuery = new RangeFreqQuery([12, 33, 4, 56, 22, 2,
- * 34, 33, 22, 12, 34, 56]);
+ * - 解释：
+ *
+ * ```cpp
+ * RangeFreqQuery rangeFreqQuery = new RangeFreqQuery([12, 33, 4, 56, 22, 2, 34, 33, 22, 12, 34, 56]);
  * rangeFreqQuery.query(1, 2, 4); // 返回 1 。4 在子数组 [33, 4] 中出现 1 次。
  * rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2 次。
+ * ```
  * 
- * 
- * 
- * 
- * 提示：
- * 
- * 
- * 1 <= arr.length <= 10^5
- * 1 <= arr[i], value <= 10^4
- * 0 <= left <= right < arr.length
- * 调用 query 不超过 10^5 次。
- * 
+ * ## 提示：
+ * - 1 <= arr.length <= 10^5
+ * - 1 <= arr[i], value <= 10^4
+ * - 0 <= left <= right < arr.length
+ * - 调用 query 不超过 10^5 次。
  * 
  */
 

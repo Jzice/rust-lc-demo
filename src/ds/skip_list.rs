@@ -6,12 +6,12 @@ use rand::Rng;
 const LEVEL_MAX: usize = 32;
 const P_FACTOR: f64 = 0.25;
 
-type Link = Option<Rc<RefCell<SkipNode>>>;
+type SkipLink = Option<Rc<RefCell<SkipNode>>>;
 
 /// 跳表节点
 pub struct SkipNode {
     val: i32,
-    next: Vec<Link>,
+    next: Vec<SkipLink>,
 }
 
 impl SkipNode {
@@ -40,7 +40,7 @@ pub struct SkipList {
     /// 跳表最高层级 
     level: usize, 
     /// 跳表头
-    head: Link,   
+    head: SkipLink,   
 }
 
 impl SkipList {

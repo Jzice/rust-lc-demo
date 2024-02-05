@@ -15,11 +15,10 @@
  *
  * 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
  *
- * '.' 匹配任意单个字符
- * '*' 匹配零个或多个前面的那一个元素
+ * - '.' 匹配任意单个字符
+ * - '*' 匹配零个或多个前面的那一个元素
  *
- *
- * 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+ * 所谓匹配，是要涵盖整个字符串s的，而不是部分字符串。
  *
  *
  * ## 示例 1：
@@ -151,22 +150,23 @@ pub mod tests {
 
     #[test]
     fn test() {
-        assert_eq!(Solution::is_match("aa".to_string(), "a".to_string()), false);
-        assert_eq!(Solution::is_match("aa".to_string(), "a*".to_string()), true);
+        assert_eq!(Solution::is_match("aa".into(), "a".into()), false);
+        assert_eq!(Solution::is_match("aa".into(), "a*".into()), true);
+        assert_eq!(Solution::is_match("aaa".into(), "a*a".into()), true);
         assert_eq!(
-            Solution::is_match("aaa".to_string(), "a*a".to_string()),
-            true
-        );
-        assert_eq!(
-            Solution::is_match("mississippi".to_string(), "mis*is*p*.".to_string()),
+            Solution::is_match(
+                "mississippi".into(), 
+                "mis*is*p*.".into()
+            ),
             false
         );
         assert_eq!(
             Solution::is_match(
-                "aabcbcbcaccbcaabc".to_string(),
-                ".*a*aa*.*b*.c*.*a*".to_string()
+                "aabcbcbcaccbcaabc".into(),
+                ".*a*aa*.*b*.c*.*a*".into()
             ),
             true
         );
     }
 }
+
