@@ -15,11 +15,17 @@
  *
  * 给定一个经过编码的字符串，返回它解码后的字符串。
  *
- * 编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+ * 编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。
  *
- * 你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+ * 注意 k 保证为正整数。
  *
- * 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+ * 你可以认为输入字符串总是有效的；
+ *
+ * 输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+ *
+ * 此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，
+ *
+ * 例如不会出现像 3a 或 2[4] 的输入。
  *
  *
  * ## 示例 1：
@@ -41,7 +47,7 @@
  * ## 提示：
  * - 1 <= s.length <= 30
  * - s 由小写英文字母、数字和方括号 '[]' 组成
- * - s 保证是一个 有效 的输入。
+ * - s 保证是一个有效的输入。
  * - s 中所有整数的取值范围为 [1, 300]
  *
  */
@@ -54,7 +60,6 @@ impl Solution {
     pub fn decode_string(s: String) -> String {
         let mut stack: Vec<(String, usize)> = Vec::new(); // 栈, 保存遍历时已经解码的字符串和当前`[]`区间的times
         let mut decoded_str = String::new(); // 已解码的字符串
-
         let mut times = 0; // 区间次数
         for c in s.chars() {
             match c {
@@ -67,16 +72,18 @@ impl Solution {
                     decoded_str.clear(); //重置已解码字符串
                 }
                 ']' => {
-                    // 离开区间,
+                    // 离开区间, 解码
                     if let Some((pre_decoded_str, this_times)) = stack.pop() {
                         // 将当前区间已解码字符串重复times，并附加到该区间前已解码字符串后，
                         // 得到完整已解码字符串
                         decoded_str = pre_decoded_str + decoded_str.repeat(this_times).as_str();
                     }
                 }
-                '0'..='9' => times = 10 * times + (c as u8 - b'0') as usize, //计算times
-                _ => {
-                    decoded_str.push(c);
+                '0'..='9' => { 
+                    times = 10 * times + (c as u8 - b'0') as usize; //计算times
+                }
+                _ => { // 其他字符
+                    decoded_str.push(c); 
                 }
             }
         }

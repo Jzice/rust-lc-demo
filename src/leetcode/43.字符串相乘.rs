@@ -1,45 +1,34 @@
-/*
+/*!
+ * # [43.字符串相乘](https://leetcode.cn/problems/multiply-strings/description/)
+ *
  * @lc app=leetcode.cn id=43 lang=rust
  *
- * [43] 字符串相乘
+ * ## 难度
+ * - Medium (44.98%)
+ * - Likes:    838
+ * - Dislikes: 0
+ * - Total Accepted:    199K
+ * - Total Submissions: 442.5K
+ * - Testcase Example:  '"2"\n"3"'
  *
- * https://leetcode.cn/problems/multiply-strings/description/
- *
- * algorithms
- * Medium (44.98%)
- * Likes:    838
- * Dislikes: 0
- * Total Accepted:    199K
- * Total Submissions: 442.5K
- * Testcase Example:  '"2"\n"3"'
+ * ## 问题描述
  *
  * 给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
  *
  * 注意：不能使用任何内置的 BigInteger 库或直接将输入转换为整数。
  *
+ * ## 示例 1:
+ * - 输入: num1 = "2", num2 = "3"
+ * - 输出: "6"
  *
+ * ## 示例 2:
+ * - 输入: num1 = "123", num2 = "456"
+ * - 输出: "56088"
  *
- * 示例 1:
- *
- *
- * 输入: num1 = "2", num2 = "3"
- * 输出: "6"
- *
- * 示例 2:
- *
- *
- * 输入: num1 = "123", num2 = "456"
- * 输出: "56088"
- *
- *
- *
- * 提示：
- *
- *
- * 1 <= num1.length, num2.length <= 200
- * num1 和 num2 只能由数字组成。
- * num1 和 num2 都不包含任何前导零，除了数字0本身。
- *
+ * ## 提示：
+ * - 1 <= num1.length, num2.length <= 200
+ * - num1 和 num2 只能由数字组成。
+ * - num1 和 num2 都不包含任何前导零，除了数字0本身。
  *
  */
 
@@ -47,7 +36,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
-    /// ## 解题思路
+    /// # 字符串相乘
     /// - 数学
     /// 1. 2345 * 678 = (2*1000 + 3*100 + 4*10 + 5) * (6*100+7*10+8)
     ///               =   2*1000 * 6*100
@@ -59,7 +48,8 @@ impl Solution {
     /// 2. 所以 num1[..] * num2[..] = sum(num1[i] * num2[j] * 10^(l1+l2-2)
     pub fn multiply(num1: String, num2: String) -> String {
         match (num1.as_str(), num2.as_str()) {
-            (num1, num2) if num1 == "0" || num2 == "0" => "0".to_string(),
+            ("0", _) => "0".to_string(),
+            (_, "0") => "0".to_string(),
             ("1", _) => num2,
             (_, "1") => num1,
             _ => {
@@ -88,3 +78,15 @@ impl Solution {
     }
 }
 // @lc code=end
+//
+ 
+#[cfg(test)]
+mod tests {
+   use super::*;
+
+   #[test]
+   fn test() {
+       assert_eq!(Solution::multiply("2".into(), "3".into()), "6".into());
+       assert_eq!(Solution::multiply("123".into(), "456".into()), "56088".into());
+   }
+}
