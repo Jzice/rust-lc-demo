@@ -1,50 +1,50 @@
-/*
+/*!
  * @lc app=leetcode.cn id=60 lang=rust
  *
- * [60] 排列序列
+ * # [60.排列序列](https://leetcode.cn/problems/permutation-sequence/description/)
  *
- * https://leetcode.cn/problems/permutation-sequence/description/
+ * ## 难度
+ * - Hard (53.40%)
+ * - Likes:    769
+ * - Dislikes: 0
+ * - Total Accepted:    127.5K
+ * - Total Submissions: 238.8K
+ * - Testcase Example:  '3\n3'
  *
- * algorithms
- * Hard (53.40%)
- * Likes:    769
- * Dislikes: 0
- * Total Accepted:    127.5K
- * Total Submissions: 238.8K
- * Testcase Example:  '3\n3'
+ * ## 问题描述
  *
  * 给出集合 [1,2,3,...,n]，其所有元素共有 n! 种排列。
  *
  * 按大小顺序列出所有排列情况，并一一标记，当 n = 3 时, 所有排列如下：
  *
- *
+ * ```text
  * "123"
  * "132"
  * "213"
  * "231"
  * "312"
  * "321"
- *
+ * ```
  *
  * 给定 n 和 k，返回第 k 个排列。
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
  *
  * 输入：n = 3, k = 3
  * 输出："213"
  *
  *
- * 示例 2：
+ * ## 示例 2：
  *
  *
  * 输入：n = 4, k = 9
  * 输出："2314"
  *
  *
- * 示例 3：
+ * ## 示例 3：
  *
  *
  * 输入：n = 3, k = 1
@@ -66,7 +66,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
-    /// ## 解题思路
+    /// # 排列序列
     /// - 递归
     /// 1. k = c1 * (n-1)! + k'
     /// 2. k' = c2 * (n-2)!

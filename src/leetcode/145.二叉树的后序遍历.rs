@@ -1,30 +1,30 @@
 /*!
+ * # [145.二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal/description/)
+ *
  * @lc app=leetcode.cn id=145 lang=rust
  *
- * # [145] 二叉树的后序遍历
+ * ## 难度
+ * - Easy (75.09%)
+ * - Likes:    709
+ * - Dislikes: 0
+ * - Total Accepted:    323.2K
+ * - Total Submissions: 430K
+ * - Testcase Example:  '[1,null,2,3]'
  *
- * https://leetcode.cn/problems/binary-tree-postorder-traversal/description/
- *
- * algorithms
- * Easy (75.09%)
- * Likes:    709
- * Dislikes: 0
- * Total Accepted:    323.2K
- * Total Submissions: 430K
- * Testcase Example:  '[1,null,2,3]'
+ * ## 问题描述
  *
  * 给定一个二叉树，返回它的 后序 遍历。
  *
  * ## 示例:
- *
- * 输入: [1,null,2,3]
- * ⁠  1
- * ⁠   \
- * ⁠    2
- * ⁠   /
- * ⁠  3
- *
- * 输出: [3,2,1]
+ * - 输入: [1,null,2,3]
+ * ```text
+ *   1
+ *    \
+ *     2
+ *    /
+ *   3
+ * ```
+ * - 输出: [3,2,1]
  *
  * ## 进阶: 
  * 

@@ -73,7 +73,7 @@ use super::*;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    /// ## 解题思路
+    /// ## 有序链表转换二叉搜索树
     /// - 递归
     /// 1. 先求出链表总长度;
     /// 2. 根据总长度, 将链表分为3个部分: 左半部分, 中间root节点, 右半部分;

@@ -4,7 +4,6 @@
  * @lc app=leetcode.cn id=19 lang=rust
  *
  * ## 难度
- *
  * - Medium (45.32%)
  * - Likes:    2477
  * - Dislikes: 0

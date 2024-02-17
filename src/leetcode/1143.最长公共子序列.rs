@@ -49,14 +49,15 @@ use super::*;
 // @lc code=start
 impl Solution {
     /// # 最长公共子序列
-    /// ## 解题思路
     /// - 动态规划
     /// 1. 设 dp[i][j]: 以text1[0..i], text2[0..j]的最长公共子序列
-    /// 2. 如下性质：
+    /// 2. 初始条件：
     ///     dp[0][j] = 0
     ///     dp[i][0] = 0
-    /// 3. dp[i][j] = dp[i-1][j-1] + 1 (text1[i] == text2[j])
-    ///           或者 = max(dp[i-1][j], dp[i][j-1])
+    /// 3. 递推关系:
+    ///    dp[i][j] = dp[i-1][j-1] + 1,           (text1[i] == text2[j])
+    ///        或者 = max(dp[i-1][j], dp[i][j-1]),(text1[i] != text2[j])
+    /// 4. 目标值：dp[l1][l2]
     pub fn longest_common_subsequence(text1: String, text2: String) -> i32 {
         let mut dp = vec![vec![0; text2.len() + 1]; text1.len() + 1];
         for (i, c1) in text1.chars().enumerate() {

@@ -26,7 +26,7 @@
  * 跳表中有很多层，每一层是一个短的链表。在第一层的作用下，增加、删除和搜索操作的时间复杂度不超过 O(n)。跳表的每一个操作的平均时间复杂度是
  * O(log(n))，空间复杂度是 O(n)。
  *
- * 了解更多 : https://en.wikipedia.org/wiki/Skip_list
+ * 了解更多 : [wiki](https://en.wikipedia.org/wiki/Skip_list)
  *
  * 在本题中，你的设计应该要包含这些函数：
  * ```cpp

@@ -1,5 +1,5 @@
 /*!
- * # [6.Z字形变换]( https://leetcode.cn/problems/zigzag-conversion/description/)
+ * # [6.Z字形变换](https://leetcode.cn/problems/zigzag-conversion/description/)
  *
  * @lc app=leetcode.cn id=6 lang=rust
  *
@@ -73,7 +73,7 @@ mod tests {
     fn test() {
         assert_eq!(
             Solution::convert("LEETCODEISHIRING".into(), 4),
-            "LDREOEIIECIHNTSG"
+            "LDREOEIIECIHNTSG".to_string()
         );
     }
 }

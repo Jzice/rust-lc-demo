@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [15.三数之和](https://leetcode.cn/problems/3sum/description/)
+ *
  * @lc app=leetcode.cn id=15 lang=rust
  *
- * [15] 三数之和
+ * ## 难度
+ * - Medium (25.59%)
+ * - Likes:    1827
+ * - Dislikes: 0
+ * - Total Accepted:    159.8K
+ * - Total Submissions: 624.2K
+ * - Testcase Example:  '[-1,0,1,2,-1,-4]'
  *
- * https://leetcode.cn/problems/3sum/description/
- *
- * algorithms
- * Medium (25.59%)
- * Likes:    1827
- * Dislikes: 0
- * Total Accepted:    159.8K
- * Total Submissions: 624.2K
- * Testcase Example:  '[-1,0,1,2,-1,-4]'
+ * ## 问题描述
  *
  * 给定一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0
  * ？找出所有满足条件且不重复的三元组。
@@ -19,16 +19,17 @@
  * 注意：答案中不可以包含重复的三元组。
  * 
  * 
- * 
- * 示例：
+ * ## 示例：
  * 
  * 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
  * 
  * 满足要求的三元组集合为：
+ * ```text
  * [
- * ⁠ [-1, 0, 1],
- * ⁠ [-1, -1, 2]
+ *  [-1, 0, 1],
+ *  [-1, -1, 2]
  * ]
+ * ```
  * 
  * 
  */
@@ -37,12 +38,11 @@ use super::*;
 
 // @lc code=start
 impl Solution {
-    /// ## 解题思路
+    /// ## 三数之和
     /// 1. 对数组进行排序；
     /// 2. 设置3个指针i, l, r；
     /// 3. i从0..size-2进行遍历
     /// 4. l, r为i遍历剩下元素从左右到中间开始遍历；
-    /// 
     pub fn three_sum(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let len = nums.len();
         if len < 3 {

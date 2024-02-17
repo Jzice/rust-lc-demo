@@ -17,30 +17,30 @@
  *
  *
  * ## 示例 1：
- *
  * - 输入：nums = [1,1,2]
  * - 输出：
+ * ```text
  * [[1,1,2],
- * ⁠[1,2,1],
- * ⁠[2,1,1]]
+ * [1,2,1],
+ * [2,1,1]]
+ * ```
  *
  *
  * ## 示例 2：
- *
  * - 输入：nums = [1,2,3]
  * - 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
  *
  * ## 提示：
- *
  * - 1 <= nums.length <= 8
  * - -10 <= nums[i] <= 10
  *
- *
  */
+
+struct Solution;
 
 // @lc code=start
 impl Solution {
-    /// ## 解题思路
+    /// # 全排列II
     /// - 回溯法
     pub fn permute_unique(nums: Vec<i32>) -> Vec<Vec<i32>> {
         let mut nums = nums.clone();
@@ -74,4 +74,3 @@ impl Solution {
 }
 // @lc code=end
 
-struct Solution;

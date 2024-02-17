@@ -45,7 +45,7 @@ impl Solution {
     ///                 + 3*100 * 8 + 4*10 * 7*10 + 6*100 * 5
     ///                 + 4*10 * 8 + 5 * 7*10
     ///                 + 5 * 8
-    /// 2. 所以 num1[..] * num2[..] = sum(num1[i] * num2[j] * 10^(l1+l2-2)
+    /// 2. 所以 num1[..] * num2[..] = sum(num1[i] * num2[j] * 10^(l1+l2-2))
     pub fn multiply(num1: String, num2: String) -> String {
         match (num1.as_str(), num2.as_str()) {
             ("0", _) => "0".to_string(),
@@ -58,11 +58,10 @@ impl Solution {
                 let mut res = String::with_capacity(l1 + l2);
                 let mut carry = 0;
                 for k in 0..(l1 + l2 - 1) {
-                    for i in 0..l1 {
-                        let j = k - i;
-                        if j < l2 {
+                    for i in 0..l1.min(k+1) {
+                        if k < i + l2 {
                             carry += (num1[l1 - 1 - i] as u32 - b'0' as u32)
-                                * (num2[l2 - 1 - j] as u32 - b'0' as u32);
+                                * (num2[l2 - 1 + i - k] as u32 - b'0' as u32);
                         }
                     }
                     res.insert(0, char::from_u32(carry % 10 + b'0' as u32).unwrap());
@@ -86,7 +85,7 @@ mod tests {
 
    #[test]
    fn test() {
-       assert_eq!(Solution::multiply("2".into(), "3".into()), "6".into());
-       assert_eq!(Solution::multiply("123".into(), "456".into()), "56088".into());
+       assert_eq!(Solution::multiply("2".into(), "3".into()), "6".to_string());
+       assert_eq!(Solution::multiply("123".into(), "456".into()), "56088".to_string());
    }
 }
