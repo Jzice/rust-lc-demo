@@ -52,6 +52,7 @@ impl Solution {
         }
         let mut nums = nums;
         nums.sort();
+
         for i in 0..len - 3 {
             if i > 0 && nums[i] == nums[i - 1] {
                 continue;

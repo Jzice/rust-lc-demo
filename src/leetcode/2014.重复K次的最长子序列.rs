@@ -1,15 +1,15 @@
-/*
+/*!
+ * # [2014.重复K次的最长子序列](https://leetcode.cn/problems/longest-subsequence-repeated-k-times/description/)
+ *
  * @lc app=leetcode.cn id=2014 lang=rust
  *
- * [2014] 重复 K 次的最长子序列
+ * ## 难度
+ * - Hard (54.48%)
+ * - Total Accepted:    2.1K
+ * - Total Submissions: 3.8K
+ * - Testcase Example:  '"letsleetcode"\n2'
  *
- * https://leetcode.cn/problems/longest-subsequence-repeated-k-times/description/
- *
- * algorithms
- * Hard (54.48%)
- * Total Accepted:    2.1K
- * Total Submissions: 3.8K
- * Testcase Example:  '"letsleetcode"\n2'
+ * ## 描述
  *
  * 给你一个长度为 n 的字符串 s ，和一个整数 k 。请你找出字符串 s 中 重复 k 次的 最长子序列 。
  * 
@@ -26,45 +26,26 @@
  * 返回字符串 s 中 重复 k 次的最长子序列  。如果存在多个满足的子序列，则返回 字典序最大 的那个。如果不存在这样的子序列，返回一个 空
  * 字符串。
  * 
+ * ## 示例 1：
+ * - 输入：s = "letsleetcode", k = 2
+ * - 输出："let"
+ * - 解释：存在两个最长子序列重复 2 次：let" 和 "ete" 。"let" 是其中字典序最大的一个。
  * 
+ * ## 示例 2：
+ * - 输入：s = "bb", k = 2
+ * - 输出："b"
+ * - 解释：重复 2 次的最长子序列是 "b" 。
  * 
- * 示例 1：
+ * ## 示例 3：
+ * - 输入：s = "ab", k = 2
+ * - 输出：""
+ * - 解释：不存在重复 2 次的最长子序列。返回空字符串。
  * 
- * 
- * 
- * 
- * 输入：s = "letsleetcode", k = 2
- * 输出："let"
- * 解释：存在两个最长子序列重复 2 次：let" 和 "ete" 。
- * "let" 是其中字典序最大的一个。
- * 
- * 
- * 示例 2：
- * 
- * 
- * 输入：s = "bb", k = 2
- * 输出："b"
- * 解释：重复 2 次的最长子序列是 "b" 。
- * 
- * 
- * 示例 3：
- * 
- * 
- * 输入：s = "ab", k = 2
- * 输出：""
- * 解释：不存在重复 2 次的最长子序列。返回空字符串。
- * 
- * 
- * 
- * 
- * 提示：
- * 
- * 
- * n == s.length
- * 2 <= k <= 2000
- * 2 <= n < k * 8
- * s 由小写英文字母组成
- * 
+ * ## 提示：
+ * - n == s.length
+ * - 2 <= k <= 2000
+ * - 2 <= n < k * 8
+ * - s 由小写英文字母组成
  * 
  */
 
@@ -72,6 +53,7 @@ struct Solution;
 
 // @lc code=start
 impl Solution {
+    /// ## 重复K次的最长子序列
     pub fn longest_subsequence_repeated_k(s: String, k: i32) -> String {
         todo!();
     }
