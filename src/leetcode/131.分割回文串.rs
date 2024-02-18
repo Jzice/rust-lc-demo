@@ -1,52 +1,41 @@
-/*
+/*!
+ * # [131.分割回文串](https://leetcode.cn/problems/palindrome-partitioning/description/)
+ *
  * @lc app=leetcode.cn id=131 lang=rust
  *
- * [131] 分割回文串
+ * ## 难度
+ * - Medium (73.42%)
+ * - Likes:    1567
+ * - Dislikes: 0
+ * - Total Accepted:    305.8K
+ * - Total Submissions: 416.6K
+ * - Testcase Example:  '"aab"'
  *
- * https://leetcode.cn/problems/palindrome-partitioning/description/
+ * ## 描述
  *
- * algorithms
- * Medium (73.42%)
- * Likes:    1567
- * Dislikes: 0
- * Total Accepted:    305.8K
- * Total Submissions: 416.6K
- * Testcase Example:  '"aab"'
- *
- * 给你一个字符串 s，请你将 s 分割成一些子串，使每个子串都是 回文串 。返回 s 所有可能的分割方案。
+ * 给你一个字符串s，请你将s 分割成一些子串，使每个子串都是回文串 。返回 s 所有可能的分割方案。
  *
  * 回文串 是正着读和反着读都一样的字符串。
  *
  *
- *
- * 示例 1：
- *
- *
- * 输入：s = "aab"
- * 输出：[["a","a","b"],["aa","b"]]
+ * ## 示例 1：
+ * - 输入：s = "aab"
+ * - 输出：[["a","a","b"],["aa","b"]]
  *
  *
- * 示例 2：
+ * ## 示例 2：
+ * - 输入：s = "a"
+ * - 输出：[["a"]]
  *
- *
- * 输入：s = "a"
- * 输出：[["a"]]
- *
- *
- *
- *
- * 提示：
- *
- *
- * 1
- * s 仅由小写英文字母组成
+ * ## 提示：
+ * - s 仅由小写英文字母组成
  *
  *
  */
 
 // @lc code=start
 impl Solution {
-    /// ## 解题思路
+    /// ## 分割回文串
     /// - 回溯法
     pub fn partition(s: String) -> Vec<Vec<String>> {
         fn is_huiwen(s: &[u8]) -> bool {

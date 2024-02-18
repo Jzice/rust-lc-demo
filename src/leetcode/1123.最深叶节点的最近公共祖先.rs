@@ -15,7 +15,7 @@
  *     如果我们假定 A 是一组节点 S 的 最近公共祖先，S 中的每个节点都在以 A 为根节点的子树中，且 A 的深到达到此条件下可能的最大值。
  * 
  * ## 示例 1：
- * [] ( https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png)
+ * [](https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/01/sketch1.png)
  * - 输入：root = [3,5,1,6,2,0,8,null,null,7,4]
  * - 输出：[2,7,4]
  * - 解释：我们返回值为 2 的节点，在图中用黄色标记。
