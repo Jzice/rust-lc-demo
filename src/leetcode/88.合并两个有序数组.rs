@@ -4,7 +4,6 @@
  * @lc app=leetcode.cn id=88 lang=rust
  *
  * ## 难度
- *
  * - Easy (52.47%)
  * - Likes:    1932
  * - Dislikes: 0

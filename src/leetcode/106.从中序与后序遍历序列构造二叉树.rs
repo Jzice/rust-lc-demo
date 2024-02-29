@@ -64,8 +64,7 @@ struct Solution;
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    /// # [106] 从中序与后序遍历序列构造二叉树
-    /// ## 解题思路
+    /// # 从中序与后序遍历序列构造二叉树
     /// - 递归
     fn build_tree(inorder: Vec<i32>, postorder: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
         fn _build(inorder: &[i32], postorder: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {

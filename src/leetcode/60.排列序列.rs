@@ -1,7 +1,7 @@
 /*!
- * @lc app=leetcode.cn id=60 lang=rust
- *
  * # [60.排列序列](https://leetcode.cn/problems/permutation-sequence/description/)
+ *
+ * @lc app=leetcode.cn id=60 lang=rust
  *
  * ## 难度
  * - Hard (53.40%)

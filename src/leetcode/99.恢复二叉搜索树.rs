@@ -10,7 +10,7 @@
  * - Dislikes: 0
  * - Total Accepted:    138.9K
  * - Total Submissions: 230.4K
- * - Testcase Example:  '[1,3,null,null,2]'
+ * - Testcase Example:  `[1,3,null,null,2]`
  *
  * ## 问题描述
  *
@@ -20,15 +20,15 @@
  *
  * ## 示例 1：
  *
- * - 输入：root = [1,3,null,null,2]
- * - 输出：[3,1,null,null,2]
+ * - 输入：`root = [1,3,null,null,2]`
+ * - 输出：`[3,1,null,null,2]`
  * - 解释：3 不能是 1 的左孩子，因为 3 > 1 。交换 1 和 3 使二叉搜索树有效。
  *
  *
  * ## 示例 2：
  *
- * - 输入：root = [3,1,4,null,null,2]
- * - 输出：[2,1,4,null,null,3]
+ * - 输入：`root = [3,1,4,null,null,2]`
+ * - 输出：`[2,1,4,null,null,3]`
  * - 解释：2 不能在 3 的右子树中，因为 2 < 3 。交换 2 和 3 使二叉搜索树有效。
  *
  *
@@ -71,10 +71,10 @@ impl Solution {
     /// # 恢复二叉搜索树
     /// ## 解题思路
     /// - 递归
-    /// 1. 二叉搜索树进行中序遍历时, 各节点值将保持顺序递增, 即node[i].val < node[i+1].val;
+    /// 1. 二叉搜索树进行中序遍历时, 各节点值将保持顺序递增, 即`node[i].val < node[i+1].val`;
     /// 2. 如果有两个节点进行了交换, 则交换的两个节点值与周围节点将不满足顺序递增的关系;
-    ///    假设交换前的两个节点node1, node2, 有 node1.val< node1.1.val < .. < node2.0.val < node2.val,
-    ///    则交换后, [(node2.val) > node1.1.val] < .. < [node2.0.val > (node1.val)]
+    ///    假设交换前的两个节点node1, node2, 有 `node1.val< node1.1.val < .. < node2.0.val < node2.val`,
+    ///    则交换后, `[(node2.val) > node1.1.val] < .. < [node2.0.val > (node1.val)] `
     /// 3. 所以, 中序遍历树时, 检查当前节点和前一个节点的大小关系,
     ///    当出现了第一次逆序, 则记录前一个节点node1,
     ///    出现第二次逆序时, 记录后一个节点node2,

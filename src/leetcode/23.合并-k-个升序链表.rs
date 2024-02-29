@@ -1,6 +1,5 @@
 /*!
  * # [23.合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists/description/)
- *
  * @lc app=leetcode.cn id=23 lang=rust
  *
  * ## 难度

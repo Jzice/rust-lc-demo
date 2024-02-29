@@ -90,5 +90,8 @@ impl Solution {
 mod tests {
     use super::*;
     #[test]
-    fn test() {}
+    fn test() {
+        assert_eq!(Solution::repair_cars(vec![4,2,3,1], 10), 16);
+        assert_eq!(Solution::repair_cars(vec![5,8,1], 6), 16);
+    }
 }

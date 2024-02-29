@@ -1,17 +1,18 @@
-/*
+/*!
+ *
+ * # [28.实现 strStr()](https://leetcode.cn/problems/implement-strstr/description/)
+ *
  * @lc app=leetcode.cn id=28 lang=rust
  *
- * [28] 实现 strStr()
+ * ## 难度
+ * - Easy (40.37%)
+ * - Likes:    1155
+ * - Dislikes: 0
+ * - Total Accepted:    515.5K
+ * - Total Submissions: 1.3M
+ * - Testcase Example:  '"hello"\n"ll"'
  *
- * https://leetcode.cn/problems/implement-strstr/description/
- *
- * algorithms
- * Easy (40.37%)
- * Likes:    1155
- * Dislikes: 0
- * Total Accepted:    515.5K
- * Total Submissions: 1.3M
- * Testcase Example:  '"hello"\n"ll"'
+ * ## 描述
  *
  * 实现 strStr() 函数。
  * 
@@ -29,35 +30,25 @@
  * 
  * 
  * 
- * 示例 1：
+ * ## 示例 1：
  * 
  * 
  * 输入：haystack = "hello", needle = "ll"
  * 输出：2
  * 
  * 
- * 示例 2：
+ * ## 示例 2：
+ * - 输入：haystack = "aaaaa", needle = "bba"
+ * - 输出：-1
  * 
  * 
- * 输入：haystack = "aaaaa", needle = "bba"
- * 输出：-1
+ * ## 示例 3：
+ * - 输入：haystack = "", needle = ""
+ * - 输出：0
  * 
  * 
- * 示例 3：
- * 
- * 
- * 输入：haystack = "", needle = ""
- * 输出：0
- * 
- * 
- * 
- * 
- * 提示：
- * 
- * 
- * 0 
- * haystack 和 needle 仅由小写英文字符组成
- * 
+ * ## 提示：
+ * - haystack 和 needle 仅由小写英文字符组成
  * 
  */
 
