@@ -1,17 +1,17 @@
-/*
+/*!
+ * # [2039.网络空闲的时刻](https://leetcode.cn/problems/the-time-when-the-network-becomes-idle/description/)
+ *
  * @lc app=leetcode.cn id=2039 lang=rust
  *
- * [2039] 网络空闲的时刻
- *
- * https://leetcode.cn/problems/the-time-when-the-network-becomes-idle/description/
- *
- * algorithms
+ * ## 难度
  * Medium (55.85%)
  * Likes:    119
  * Dislikes: 0
  * Total Accepted:    20.5K
  * Total Submissions: 36.8K
  * Testcase Example:  '[[0,1],[1,2]]\n[0,2,1]'
+ *
+ * ## 描述
  *
  * 给你一个有 n 个服务器的计算机网络，服务器编号为 0 到 n - 1 。同时给你一个二维整数数组 edges ，其中 edges[i] = [ui,
  * vi] 表示服务器 ui 和 vi 之间有一条信息线路，在 一秒 内它们之间可以传输 任意 数目的信息。再给你一个长度为 n 且下标从 0
@@ -37,7 +37,7 @@
  *
  *
  *
- * 示例 1：
+ * ## 示例 1：
  *
  *
  *
@@ -67,33 +67,23 @@
  * 从第 8 秒开始，不再有任何信息在服务器之间传输，也不再有信息到达服务器。
  * 所以第 8 秒是网络变空闲的最早时刻。
  *
- *
- * 示例 2：
- *
- *
- *
- * 输入：edges = [[0,1],[0,2],[1,2]], patience = [0,10,10]
- * 输出：3
- * 解释：数据服务器 1 和 2 第 2 秒初收到回复信息。
+ * ## 示例 2：
+ * - 输入：edges = [[0,1],[0,2],[1,2]], patience = [0,10,10]
+ * - 输出：3
+ * - 解释：数据服务器 1 和 2 第 2 秒初收到回复信息。
  * 从第 3 秒开始，网络变空闲。
  *
- *
- *
- *
- * 提示：
- *
- *
- * n == patience.length
- * 2 <= n <= 10^5
- * patience[0] == 0
- * 对于 1 <= i < n ，满足 1 <= patience[i] <= 10^5
- * 1 <= edges.length <= min(10^5, n * (n - 1) / 2)
- * edges[i].length == 2
- * 0 <= ui, vi < n
- * ui != vi
- * 不会有重边。
- * 每个服务器都直接或间接与别的服务器相连。
- *
+ * ## 提示：
+ * - n == patience.length
+ * - 2 <= n <= 10^5
+ * - patience[0] == 0
+ * - 对于 1 <= i < n ，满足 1 <= patience[i] <= 10^5
+ * - 1 <= edges.length <= min(10^5, n * (n - 1) / 2)
+ * - edges[i].length == 2
+ * - 0 <= ui, vi < n
+ * - ui != vi
+ * - 不会有重边。
+ * - 每个服务器都直接或间接与别的服务器相连。
  *
  */
 

@@ -1,9 +1,10 @@
-/*
+/*!
+ * # [126] 单词接龙 II
+(
+https://leetcode.cn/problems/word-ladder-ii/description/
+)
+ * 
  * @lc app=leetcode.cn id=126 lang=rust
- *
- * [126] 单词接龙 II
- *
- * https://leetcode.cn/problems/word-ladder-ii/description/
  *
  * algorithms
  * Hard (37.75%)

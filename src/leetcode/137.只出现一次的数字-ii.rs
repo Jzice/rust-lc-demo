@@ -5,7 +5,6 @@
  *
  *
  * ## 难度
- *
  * - Medium (71.78%)
  * - Likes:    1044
  * - Dislikes: 0

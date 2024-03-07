@@ -1,9 +1,7 @@
-/*
+/*!
+ * # [115.不同的子序列](https://leetcode.cn/problems/distinct-subsequences/description/)
+ * 
  * @lc app=leetcode.cn id=115 lang=rust
- *
- * [115] 不同的子序列
- *
- * https://leetcode.cn/problems/distinct-subsequences/description/
  *
  * algorithms
  * Hard (52.21%)
@@ -56,7 +54,7 @@
  */
 
 struct Solution;
-
+ 
 // @lc code=start
 impl Solution {
     /// ## 解题思路

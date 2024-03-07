@@ -2,7 +2,7 @@
 
 PHONY := all
 
-all:
+all: test doc
 	@echo "make all"
 
 PHONY += build

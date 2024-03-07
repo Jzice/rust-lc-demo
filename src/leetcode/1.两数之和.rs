@@ -41,6 +41,7 @@ impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
         use std::collections::HashMap;
         let mut map: HashMap<i32, i32> = HashMap::new();
+
         for (i, n) in nums.iter().enumerate() {
             match map.get(n) {
                 Some(&pre_idx) => {
