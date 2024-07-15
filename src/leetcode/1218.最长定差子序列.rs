@@ -1,11 +1,9 @@
-/*
+/*!
+ * # [1218.最长定差子序列](https://leetcode.cn/problems/longest-arithmetic-subsequence-of-given-difference/description/)
+ * 
  * @lc app=leetcode.cn id=1218 lang=rust
  *
- * [1218] 最长定差子序列
- *
- * https://leetcode.cn/problems/longest-arithmetic-subsequence-of-given-difference/description/
- *
- * algorithms
+ * ## 难度
  * Medium (51.71%)
  * Likes:    225
  * Dislikes: 0
@@ -13,6 +11,8 @@
  * Total Submissions: 80.7K
  * Testcase Example:  '[1,2,3,4]\n1'
  *
+ * ## 描述
+ * 
  * 给你一个整数数组 arr 和一个整数 difference，请你找出并返回 arr 中最长等差子序列的长度，该子序列中相邻元素之间的差等于
  * difference 。
  * 
@@ -42,16 +42,7 @@
  * 输出：4
  * 解释：最长的等差子序列是 [7,5,3,1]。
  * 
- * 
- * 
- * 
- * 提示：
- * 
- * 
- * 1 
- * -10^4 
- * 
- * 
+ * ## 提示：
  */
 
 use super::*;

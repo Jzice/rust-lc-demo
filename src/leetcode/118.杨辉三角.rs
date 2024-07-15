@@ -27,7 +27,6 @@
  * - 输出: [[1]]
  *
  */
-use super::*;
 struct Solution;
 
 // @lc code=start

@@ -57,12 +57,12 @@ impl Solution {
     /// # 最长等差数列
     /// ## 解题思路
     /// - 动态规划
-    /// 1. 设dp[i][d]: 以a[i]为尾d为公差的最长等差序列长度;
-    /// 2. 题目转化为: max(dp[i][d])  (i=0..n, d=-10000..10000);
-    /// 3. 初始边界: dp[0][] = 1;
-    /// 4. 递推公式: dp[i][d] = dp[j][d] + 1 (nums[i] = nums[j] + d)
-    /// 5. 由递推公式, d=nums[i]-nums[j], 为保证d作为数组下标在合理范围内,
+    /// 1. 设`dp[i][d]`: 表示以`a[i]`为尾, d为公差的最长等差序列长度;
+    /// 2. 初始条件: `dp[0][] = 1`;
+    /// 3. 递推公式: `dp[i][d] = dp[j][d] + 1 (nums[i] = nums[j] + d)`
+    /// 4. 由递推公式, `d = nums[i] - nums[j]`, 为保证d作为数组下标在合理范围内,
     ///    将d加上nums中最大最小值的差值, 由于 0<=nums[i]<=500, 所以+500;
+    /// 5. 题目转化为: `max(dp[i][d])`  (i=0..n, d=-10000..10000);
     pub fn longest_arith_seq_length(a: Vec<i32>) -> i32 {
         let mut res = 0;
         let mut dp = vec![vec![1; 2 * 500 + 1]; a.len()];
@@ -78,3 +78,15 @@ impl Solution {
     }
 }
 // @lc code=end
+//
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test() {
+        assert_eq!(Solution::longest_arith_seq_length(vec![3,6,9,12]), 4);
+        assert_eq!(Solution::longest_arith_seq_length(vec![20,1,15,3,10,5,8]), 4);
+        assert_eq!(Solution::longest_arith_seq_length(vec![9,4,7,2,10]), 3);
+    }
+}

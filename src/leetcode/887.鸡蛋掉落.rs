@@ -100,17 +100,15 @@ impl Solution {
     pub fn super_egg_drop(k: i32, n: i32) -> i32 {
         let (k, n) = (k as usize, n as usize);
         let mut dp = vec![vec![0; n + 1]; k + 1];
-        dp[1][1] = 1;
-        for i in 1..=k {
-            for j in 1..=n {
+        let mut j = 0; // 操作次数
+        while dp[k][j] < n {
+            j += 1;
+            for i in 1..=k {
                 dp[i][j] = 1 + dp[i][j-1] + dp[i-1][j-1];
-                if i == k && dp[i][j] >= n {
-                    return j as i32;
-                }
             }
         }
 
-        n as i32
+        j as i32
     }
 }
 // @lc code=end
@@ -123,9 +121,5 @@ mod tests {
         assert_eq!(Solution::super_egg_drop(1, 2), 2);
         assert_eq!(Solution::super_egg_drop(2, 6), 3);
         assert_eq!(Solution::super_egg_drop(3, 14), 4);
-
-        assert_eq!(Solution::super_egg_drop1(1, 2), 2);
-        assert_eq!(Solution::super_egg_drop1(2, 6), 3);
-        assert_eq!(Solution::super_egg_drop1(3, 14), 4);
     }
 }

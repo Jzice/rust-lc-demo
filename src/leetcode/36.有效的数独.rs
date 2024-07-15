@@ -1,9 +1,7 @@
-/*
+/*!
+ * # [36.有效的数独](https://leetcode.cn/problems/valid-sudoku/description/)
+ * 
  * @lc app=leetcode.cn id=36 lang=rust
- *
- * [36] 有效的数独
- *
- * https://leetcode.cn/problems/valid-sudoku/description/
  *
  * algorithms
  * Medium (63.15%)
@@ -74,7 +72,6 @@
  * board.length == 9
  * board[i].length == 9
  * board[i][j] 是一位数字（1-9）或者 '.'
- *
  *
  */
 

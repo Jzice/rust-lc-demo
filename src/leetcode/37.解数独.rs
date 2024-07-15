@@ -1,9 +1,7 @@
-/*
+/*!
+ * # [37.解数独](https://leetcode.cn/problems/sudoku-solver/description/)
+ * 
  * @lc app=leetcode.cn id=37 lang=rust
- *
- * [37] 解数独
- *
- * https://leetcode.cn/problems/sudoku-solver/description/
  *
  * algorithms
  * Hard (67.05%)
@@ -24,10 +22,6 @@
  *
  *
  * 数独部分空格内已填入了数字，空白格用 '.' 表示。
- *
- *
- *
- *
  *
  *
  * 示例：

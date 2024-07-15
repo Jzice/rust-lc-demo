@@ -1,9 +1,7 @@
-/*
+/*!
+ * # [1146.快照数组](https://leetcode.cn/problems/snapshot-array/description/)
+ *
  * @lc app=leetcode.cn id=1146 lang=rust
- *
- * [1146] 快照数组
- *
- * https://leetcode.cn/problems/snapshot-array/description/
  *
  * algorithms
  * Medium (32.86%)
@@ -12,6 +10,8 @@
  * Total Accepted:    8.4K
  * Total Submissions: 25.6K
  * Testcase Example:  '["SnapshotArray","set","snap","set","get"]\n[[3],[0,5],[],[0,6],[0,0]]'
+ *
+ * ## 描述
  *
  * 实现支持下列接口的「快照数组」- SnapshotArray：
  * 
@@ -24,12 +24,12 @@
  * 
  * 
  * 
- * 示例：
+ * ## 示例：
  * 
- * 输入：["SnapshotArray","set","snap","set","get"]
+ * - 输入：["SnapshotArray","set","snap","set","get"]
  * ⁠    [[3],[0,5],[],[0,6],[0,0]]
- * 输出：[null,null,0,null,5]
- * 解释：
+ * - 输出：[null,null,0,null,5]
+ * - 解释：
  * SnapshotArray snapshotArr = new SnapshotArray(3); // 初始化一个长度为 3 的快照数组
  * snapshotArr.set(0,5);  // 令 array[0] = 5
  * snapshotArr.snap();  // 获取快照，返回 snap_id = 0
@@ -38,15 +38,13 @@
  * 
  * 
  * 
- * 提示：
- * 
- * 
- * 1 <= length <= 50000
- * 题目最多进行50000 次set，snap，和 get的调用 。
- * 0 <= index < length
- * 0 <= snap_id < 我们调用 snap() 的总次数
- * 0 <= val <= 10^9
- * 
+ * ## 提示：
+ *
+ * - 1 <= length <= 50000
+ * - 题目最多进行50000 次set，snap，和 get的调用 。
+ * - 0 <= index < length
+ * - 0 <= snap_id < 我们调用 snap() 的总次数
+ * - 0 <= val <= 10^9
  * 
  */
 

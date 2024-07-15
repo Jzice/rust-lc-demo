@@ -1,7 +1,7 @@
 /*!
  * # [901.股票价格跨度]( https://leetcode.cn/problems/online-stock-span/description/)
- * @lc app=leetcode.cn id=901 lang=rust
  *
+ * @lc app=leetcode.cn id=901 lang=rust
  *
  * ## 难度
  *
