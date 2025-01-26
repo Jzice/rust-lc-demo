@@ -9,3 +9,5 @@ edition = "2021"
 dashmap = "5.5.3"
 rand = "0.8.5"
 automod = { git = "https://github.com/jzice/automod", branch = "dev" }
+
+[env]

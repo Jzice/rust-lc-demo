@@ -7,7 +7,7 @@ all: test doc
 
 PHONY += build
 build:
-	@cargo build
+	@rustup run nightly cargo build
 
 PHONY += doc
 doc:

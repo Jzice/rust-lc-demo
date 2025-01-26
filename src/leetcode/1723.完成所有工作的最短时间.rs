@@ -41,6 +41,14 @@ struct Solution;
 // @lc code=start
 impl Solution {
     /// ## 解题思路
+    /// - 二分查找
+    /// - 二分查找的上下界
+    /// - 二分查找的判断条件
+    /// - 二分查找的更新方式
+    /// - 二分查找的返回值
+    /// - 二分查找的边界条件
+    /// - 二分查找的优化
+    /// - 二分查找的注意事项
     pub fn minimum_time_required(jobs: Vec<i32>, k: i32) -> i32 {
         todo!();
     }

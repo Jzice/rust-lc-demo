@@ -56,6 +56,12 @@
 
 // @lc code=start
 impl Solution {
+    /// 解题思路
+    /// - 贪心
+    /// - 先按照结束时间排序
+    /// - 然后遍历，如果当前任务的开始时间大于前一个任务的结束时间，则可以合并
+    /// - 否则，需要开启新的电脑
+    /// - 最后返回电脑数量
     pub fn find_minimum_time(tasks: Vec<Vec<i32>>) -> i32 {
         todo!()
     }

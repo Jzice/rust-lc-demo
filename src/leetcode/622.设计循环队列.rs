@@ -57,45 +57,79 @@
 
 // @lc code=start
 
+struct MyCircularQueue {
+    data: Vec<i32>,
+    head: i32,
+    tail: i32,
+    size: i32,
+    capacity: i32,
+}
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl MyCircularQueue {
-
+    /// 构造器，设置队列长度为 k
     fn new(k: i32) -> Self {
-        unimplemented!();
+        MyCircularQueue {
+            data: vec![-1; k as usize],
+            head: -1,
+            tail: -1,
+            size: 0,
+            capacity: k,
+        }
     }
     
-    fn en_queue(&self, value: i32) -> bool {
-        unimplemented!();
-
+    /// 向循环队列插入一个元素。如果成功插入则返回真
+    fn en_queue(&mut self, value: i32) -> bool {
+        if self.is_full() {
+            return false;
+        }
+        if self.is_empty() {
+            self.head = 0;
+        }
+        self.tail = (self.tail + 1) % self.capacity;
+        self.data[self.tail as usize] = value;
+        self.size += 1;
+        true
     }
     
-    fn de_queue(&self) -> bool {
-
-        unimplemented!();
+    /// 从循环队列中删除一个元素。如果成功删除则返回真
+    fn de_queue(&mut self) -> bool {
+        if self.is_empty() {
+            return false;
+        }
+        if self.head == self.tail {
+            self.head = -1;
+            self.tail = -1;
+        } else {
+            self.head = (self.head + 1) % self.capacity;
+        }
+        self.size -= 1;
+        true
     }
     
+    /// 从队首获取元素。如果队列为空，返回 -1
     fn front(&self) -> i32 {
-
-        unimplemented!();
+        if self.is_empty() {
+            return -1;
+        }
+        self.data[self.head as usize]
     }
     
+    /// 获取队尾元素。如果队列为空，返回 -1
     fn rear(&self) -> i32 {
-
-        unimplemented!();
+        if self.is_empty() {
+            return -1;
+        }
+        self.data[self.tail as usize]
     }
     
+    /// 检查循环队列是否为空
     fn is_empty(&self) -> bool {
-
-        unimplemented!();
+        self.size == 0
     }
     
+    /// 检查循环队列是否已满
     fn is_full(&self) -> bool {
-        unimplemented!();
-
+        self.size == self.capacity
     }
 }
 
@@ -109,7 +143,25 @@ impl MyCircularQueue {
  * let ret_5: bool = obj.is_empty();
  * let ret_6: bool = obj.is_full();
  */
-struct MyCircularQueue {
-}
 // @lc code=end
+
+// 增加测试用例
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_circular_queue() {
+        let mut circular_queue = MyCircularQueue::new(3); // 设置长度为 3
+        assert_eq!(circular_queue.en_queue(1), true);  // 返回 true
+        assert_eq!(circular_queue.en_queue(2), true);  // 返回 true
+        assert_eq!(circular_queue.en_queue(3), true);  // 返回 true
+        assert_eq!(circular_queue.en_queue(4), false); // 返回 false，队列已满
+        assert_eq!(circular_queue.rear(), 3);          // 返回 3
+        assert_eq!(circular_queue.is_full(), true);    // 返回 true
+        assert_eq!(circular_queue.de_queue(), true);   // 返回 true
+        assert_eq!(circular_queue.en_queue(4), true);  // 返回 true
+        assert_eq!(circular_queue.rear(), 4);          // 返回 4
+    }
+}
 

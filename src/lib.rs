@@ -13,7 +13,7 @@
 #![feature(if_let_guard)]
 
 pub mod ds;
-pub mod alg; 
+pub mod alg;
 pub mod leetcode;
 
 

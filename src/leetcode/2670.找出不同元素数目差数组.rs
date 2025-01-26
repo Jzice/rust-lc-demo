@@ -52,15 +52,44 @@ use super::*;
 impl Solution {
     /// # 2670.找出不同元素数目差数组 
     pub fn distinct_difference_array(nums: Vec<i32>) -> Vec<i32> {
-        todo!()
+        let n = nums.len();
+        let mut ans = vec![0; n];
+        let mut prefix_set = std::collections::HashSet::new();
+        let mut suffix_set = std::collections::HashSet::new();
+        let mut prefix_count = vec![0; n];
+        let mut suffix_count = vec![0; n];
+
+        // 计算前缀不同元素数目
+        for i in 0..n {
+            prefix_set.insert(nums[i]);
+            prefix_count[i] = prefix_set.len();
+        }
+
+        // 计算后缀不同元素数目
+        for i in (0..n).rev() {
+            suffix_set.insert(nums[i]);
+            suffix_count[i] = suffix_set.len();
+        }
+
+        // 计算不同元素数目差数组
+        for i in 0..n {
+            let suffix_diff = if i + 1 < n { suffix_count[i + 1] } else { 0 };
+            ans[i] = prefix_count[i] as i32 - suffix_diff as i32;
+        }
+
+        ans
     }
 }
 // @lc code=end
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
     #[test]
-    fn test() {
+    fn test_distinct_difference_array() {
+        assert_eq!(Solution::distinct_difference_array(vec![1, 2, 3, 4, 5]), vec![-3, -1, 1, 3, 5]);
+        assert_eq!(Solution::distinct_difference_array(vec![3, 2, 3, 4, 2]), vec![-2, -1, 0, 2, 3]);
     }
 }
-        
+

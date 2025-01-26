@@ -50,12 +50,51 @@
 struct Solution;
 
 // @lc code=start
+use std::collections::HashMap;
+
 impl Solution {
     /// ## 解题思路
     /// * 动态规划
     ///
+    /// 计算满足购物清单所需花费的最低价格
     pub fn shopping_offers(price: Vec<i32>, special: Vec<Vec<i32>>, needs: Vec<i32>) -> i32 {
-        todo!();
+        let mut memo = HashMap::new(); // 初始化记忆化哈希表
+        Self::dfs(&price, &special, &needs, &mut memo) // 调用辅助函数计算最低价格
+    }
+
+    /// 递归辅助函数，计算满足当前需求的最低价格
+    fn dfs(price: &Vec<i32>, special: &Vec<Vec<i32>>, needs: &Vec<i32>, memo: &mut HashMap<Vec<i32>, i32>) -> i32 {
+        // 如果当前需求已经计算过，直接返回存储的结果
+        if let Some(&res) = memo.get(needs) {
+            return res;
+        }
+
+        // 计算不使用大礼包时的总价格
+        let mut res = 0;
+        for (i, &need) in needs.iter().enumerate() {
+            res += need * price[i];
+        }
+
+        // 尝试使用每个大礼包
+        for sp in special {
+            let mut clone = needs.clone(); // 复制当前需求
+            let mut valid = true; // 标记大礼包是否有效
+            for i in 0..needs.len() {
+                if clone[i] < sp[i] { // 如果大礼包中的物品数量超过当前需求
+                    valid = false; // 标记为无效
+                    break;
+                }
+                clone[i] -= sp[i]; // 更新需求
+            }
+            if valid {
+                // 递归计算使用大礼包后的最低价格，并更新结果
+                res = res.min(sp[needs.len()] + Self::dfs(price, special, &clone, memo));
+            }
+        }
+
+        // 存储当前需求的最低价格
+        memo.insert(needs.clone(), res);
+        res // 返回最低价格
     }
 }
 // @lc code=end

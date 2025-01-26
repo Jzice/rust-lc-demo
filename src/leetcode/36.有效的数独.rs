@@ -75,12 +75,60 @@
  *
  */
 
+struct Solution;
+
 // @lc code=start
 impl Solution {
+    /// ## 思路：
+    /// - 使用三个数组分别记录行、列、3x3 宫格中数字出现的次数
+    /// - 遍历数独，如果某个数字出现次数大于 1，则返回 false
+    /// - 遍历完成后，返回 true
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
-        todo!()
+        let mut rows = vec![vec![0; 9]; 9];
+        let mut cols = vec![vec![0; 9]; 9];
+        let mut boxes = vec![vec![0; 9]; 9];
+
+        for i in 0..9 {
+            for j in 0..9 {
+                if board[i][j] == '.' {
+                    continue;
+                } else {
+                    let num = board[i][j] as usize - '0' as usize;
+                    let box_index = (i / 3) * 3 + j / 3;
+                    rows[i][num - 1] += 1;
+                    cols[j][num - 1] += 1;
+                    boxes[box_index][num - 1] += 1;
+                    if rows[i][num - 1] > 1 || cols[j][num - 1] > 1 || boxes[box_index][num - 1] > 1 {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return true;
     }
 }
 // @lc code=end
 
-struct Solution;
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test(){
+        let board = vec![
+            vec!['8','3','.','.','7','.','.','.','.'],
+            vec!['6','.','.','1','9','5','.','.','.'],
+            vec!['.','9','8','.','.','.','.','6','.'],
+            vec!['8','.','.','.','6','.','.','.','3'],
+            vec!['4','.','.','8','.','3','.','.','1'],
+            vec!['7','.','.','.','2','.','.','.','6'],
+            vec!['.','6','.','.','.','.','2','8','.'],
+            vec!['.','.','.','4','1','9','.','.','5'],
+            vec!['.','.','.','.','8','.','.','7','9'],
+        ];
+
+        assert_eq!(Solution::is_valid_sudoku(board), false);
+    }
+
+}
